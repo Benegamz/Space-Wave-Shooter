@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class TurretShooting : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
-    {
+    {   
         
     }
 
@@ -14,5 +14,12 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         
+    }
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.name == "Player") {
+            Debug.Log("Player in Raius");
+        }
+
     }
 }
