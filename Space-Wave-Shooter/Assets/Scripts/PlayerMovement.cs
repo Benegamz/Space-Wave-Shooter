@@ -5,13 +5,14 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float turnSpeed = 1;
-    public int acceleration = 100;
-    public int maxSpeed = 1000;
+    public int acceleration = 1;
+    int CurrentSpeed = 0;
+    public int maxSpeed = 10000;
     public int strafingSpeed = 1;
     Rigidbody rb;
     void Start()
     {
-        
+        InvokeRepeating ("SpeedManagement",0,1f/60f);
         rb = GetComponent<Rigidbody>();
     }
 
@@ -61,6 +62,26 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey("a"))
         {
             rb.AddRelativeForce(-1*strafingSpeed,0,0);
+        }
+        rb.velocity = transform.forward * CurrentSpeed;
+    }
+    void SpeedManagement ()
+    {
+        if (Input.GetKey("w"))
+        {
+            if (CurrentSpeed < maxSpeed)
+            {
+                CurrentSpeed = CurrentSpeed+acceleration;
+                Debug.Log (CurrentSpeed);
+            }
+        }
+        if (Input.GetKey("s"))
+        {
+            if (CurrentSpeed >= 0)
+            {
+                CurrentSpeed = CurrentSpeed-acceleration;
+                Debug.Log (CurrentSpeed);
+            }
         }
     }
 }
