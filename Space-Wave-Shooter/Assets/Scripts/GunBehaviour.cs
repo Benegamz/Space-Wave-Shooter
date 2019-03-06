@@ -6,6 +6,7 @@ public class GunBehaviour : MonoBehaviour
 {
     public GameObject Bullet;
     float cooldownTimer = 0f;
+    public float FireCooldown = 1.5f;
     void Start()
     {
      InvokeRepeating("Cooldown", 0, 0.1f);   
@@ -19,7 +20,7 @@ public class GunBehaviour : MonoBehaviour
             if (Input.GetKey("mouse 0"))
             {
                 Instantiate(Bullet, transform.position + (transform.forward * 10), transform.rotation);
-                cooldownTimer = 1.5f;
+                cooldownTimer = FireCooldown;
             }
         }
     }
