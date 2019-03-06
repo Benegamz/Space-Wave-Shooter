@@ -20,7 +20,7 @@ public class EnemyMovement : MonoBehaviour
 
         Vector3 direction = player.transform.position - transform.position;
         
-        Debug.DrawLine(transform.position,player.transform.position, Color.red);
+        Debug.DrawLine(transform.position, player.transform.position, Color.red);
 
     }
 }
