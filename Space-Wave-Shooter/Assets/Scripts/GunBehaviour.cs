@@ -19,7 +19,7 @@ public class GunBehaviour : MonoBehaviour
         {
             if (Input.GetKey("mouse 0"))
             {
-                Instantiate(Bullet, transform.position + (transform.forward * 10), transform.rotation);
+                Instantiate(Bullet, transform.position + (transform.forward * 20), transform.rotation);
                 cooldownTimer = FireCooldown;
             }
         }

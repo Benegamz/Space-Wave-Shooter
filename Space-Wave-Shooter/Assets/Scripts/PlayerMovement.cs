@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey("left alt")!= true)
         {
             Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
             if (Input.GetAxis("Mouse X")<0)
             {
                 Debug.Log("Mouse moved left");
@@ -54,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
         if (Input.GetKey("d"))
         {
