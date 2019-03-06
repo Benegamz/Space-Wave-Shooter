@@ -5,8 +5,8 @@ using UnityEngine;
 public class GunBehaviour : MonoBehaviour
 {
     public GameObject Bullet;
-    float cooldownTimer = 0f;
-    public float FireCooldown = 1.5f;
+    int cooldownTimer = 0;
+    public int FireCooldown = 2;
     void Start()
     {
      InvokeRepeating("Cooldown", 0, 0.1f);   
