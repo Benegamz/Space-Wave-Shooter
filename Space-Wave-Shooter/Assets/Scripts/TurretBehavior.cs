@@ -21,8 +21,11 @@ public class TurretBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
+
+
         float distance = Vector3.Distance(transform.position,Player.transform.position);
         if (distance <= radius) {
+            Debug.DrawLine(transform.position,Player.transform.position,Color.red);
             Fire();
         }
     }
