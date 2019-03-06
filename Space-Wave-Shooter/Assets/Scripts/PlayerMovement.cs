@@ -25,12 +25,12 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetAxis("Mouse X")<0)
             {
                 Debug.Log("Mouse moved left");
-                transform.Rotate(0,-1*turnSpeed*-Input.GetAxis("Mouse X"),0,Space.Self);
+                transform.Rotate(0,-0.5f*turnSpeed*-Input.GetAxis("Mouse X"),0,Space.Self);
             }
             if (Input.GetAxis("Mouse X")>0)
             {
                 Debug.Log("Mouse moved right");
-                transform.Rotate(0,1*turnSpeed*Input.GetAxis("Mouse X"),0,Space.Self);
+                transform.Rotate(0,0.5f*turnSpeed*Input.GetAxis("Mouse X"),0,Space.Self);
             }
             if (Input.GetAxis("Mouse Y")<0)
             {
