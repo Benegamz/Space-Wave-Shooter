@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretShooting : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     public float turnSpeed = 1;
     public int acceleration = 1;
@@ -83,12 +83,5 @@ public class TurretShooting : MonoBehaviour
                 Debug.Log (CurrentSpeed);
             }
         }
-    }
-    void OnCollisionEnter(Collision other)
-    {
-        if (other.collider.name == "Player") {
-            Debug.Log("Player in Raius");
-        }
-
     }
 }

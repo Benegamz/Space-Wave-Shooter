@@ -6,18 +6,22 @@ public class EnemyMovement : MonoBehaviour
 {   
     public GameObject player;
 
+    Transform enemyTR;
+
     void Start()
     {
+        Transform enemyTR = GetComponent<Transform>();
 
     }
 
     void Update()
     {
+        Vector3 playerPos = player.transform.position;
 
         Vector3 direction = player.transform.position - transform.position;
-        direction.Normalize();
         
-        Debug.DrawRay(transform.position, direction, Color.red);
+        Debug.DrawLine(transform.position,player.transform.position, Color.red);
+        
 
     }
 }
