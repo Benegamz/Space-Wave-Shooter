@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public int acceleration = 1;
     int CurrentSpeed = 0;
     public int maxSpeed = 10000;
-    public int strafingSpeed = 1;
+    public float strafingSpeed = 1;
     Rigidbody rb;
     void Start()
     {
@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKey("s"))
         {
-            if (CurrentSpeed >= 0)
+            if (CurrentSpeed > -15)
             {
                 CurrentSpeed = CurrentSpeed-acceleration;
                 Debug.Log (CurrentSpeed);
