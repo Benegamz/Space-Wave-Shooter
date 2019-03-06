@@ -7,10 +7,12 @@ public class PlayerMovement : MonoBehaviour
     public float turnSpeed = 1;
     public int acceleration = 100;
     public int maxSpeed = 1000;
-
+    public int strafingSpeed = 1;
+    Rigidbody rb;
     void Start()
     {
-       
+        
+        rb = GetComponent<Rigidbody>();
     }
 
 
@@ -51,6 +53,14 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             Cursor.visible = true;
+        }
+        if (Input.GetKey("d"))
+        {
+            rb.AddRelativeForce(1*strafingSpeed,0,0);
+        }
+        if (Input.GetKey("a"))
+        {
+            rb.AddRelativeForce(-1*strafingSpeed,0,0);
         }
     }
 }
