@@ -24,8 +24,7 @@ public class TurretBehavior : MonoBehaviour
         float distance = Vector3.Distance(transform.position,Player.transform.position);
         if (distance <= radius) {
             Fire();
-            Debug.Log("Now Firing");
-        }   
+        }
     }
 
     void Fire() {
