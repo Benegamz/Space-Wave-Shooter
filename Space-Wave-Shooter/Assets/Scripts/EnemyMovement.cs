@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
     public GameObject point;
     public float rotationSpeed;
     public float flySpeed;
+    public float stopDistance;
 
     Rigidbody rb;
 
@@ -35,7 +36,20 @@ public class EnemyMovement : MonoBehaviour
 
         if(Physics.Raycast(playerRay,out hit)) {
             if(hit.collider.tag == "Player") {
-                rb.velocity = transform.TransformDirection(Vector3.forward) * flySpeed * Time.deltaTime;
+                if (Vector3.Distance(transform.position,player.transform.position) > stopDistance) {
+                    rb.velocity = transform.TransformDirection(Vector3.forward) * flySpeed * Time.deltaTime;
+                }
+                else {
+                    rb.velocity = new Vector3(0,0,0);
+                }
+            }
+            else {
+               if (Vector3.Distance(transform.position,player.transform.position) > stopDistance) {
+                    rb.velocity = direction;
+                }
+                else {
+                    rb.velocity = new Vector3(0,0,0);
+                } 
             }
         }
     }

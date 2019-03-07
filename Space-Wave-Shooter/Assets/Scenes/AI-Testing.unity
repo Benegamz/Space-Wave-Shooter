@@ -448,5 +448,15 @@ PrefabInstance:
       propertyPath: flySpeed
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 1455833335725165407, guid: ccbda4f49c561394ab25fc8abe4e19e4,
+        type: 3}
+      propertyPath: rotationSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455833335725165407, guid: ccbda4f49c561394ab25fc8abe4e19e4,
+        type: 3}
+      propertyPath: stopDistance
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccbda4f49c561394ab25fc8abe4e19e4, type: 3}
