@@ -5,12 +5,16 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {   
     public GameObject player;
-
+    public GameObject point;
     public float rotationSpeed;
+    public float flySpeed;
+
+    Rigidbody rb;
 
     void Start()
     {
         player = GameObject.Find("Player");
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -26,19 +30,18 @@ public class EnemyMovement : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(newDir);
 
         RaycastHit hit;
-        Ray playerRay = new Ray(transform.position, Vector3.forward);
-        Debug.DrawRay(transform.position,Vector3.forward * 100,Color.blue);
+        Ray playerRay = new Ray(point.transform.position, transform.TransformDirection(Vector3.forward));
+        Debug.DrawRay(point.transform.position,transform.TransformDirection(Vector3.forward) * 50,Color.blue);
 
         if(Physics.Raycast(playerRay,out hit)) {
             if(hit.collider.tag == "Player") {
                 Debug.Log("Able to move");
+
+                rb.velocity = transform.TransformDirection(Vector3.forward) * flySpeed * Time.deltaTime;
             }
             else {
                 Debug.Log("Not Player");
             }
-        }
-        else {
-            Debug.Log("Unable to move");
         }
     }
 }
