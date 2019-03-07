@@ -348,6 +348,22 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3975364847823229138}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &524275134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524275126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 247fd70641a793f4eb4ad9f3842ca189, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 100
+  regeneration: 1
+  regenerationAmount: 1
+  godMode: 0
 --- !u!1 &645327951 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6644299359115560313, guid: abe51846aa95263478d930890ec0e78f,
@@ -570,6 +586,11 @@ PrefabInstance:
         type: 3}
       propertyPath: far clip plane
       value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975364846714140274, guid: 27f05e3f29106b84c921392043b33536,
+        type: 3}
+      propertyPath: alternateKeymapping
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27f05e3f29106b84c921392043b33536, type: 3}

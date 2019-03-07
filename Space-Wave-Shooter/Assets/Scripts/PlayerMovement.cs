@@ -26,24 +26,24 @@ public class PlayerMovement : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             if (alternateKeymapping == false)
             {
+                //mouse left
                 if (Input.GetAxis("Mouse X")<0)
                 {
-                    Debug.Log("Mouse moved left");
                     transform.Rotate(0,-0.5f*turnSpeed*-Input.GetAxis("Mouse X"),0,Space.Self);
                 }
+                //mouse right
                 if (Input.GetAxis("Mouse X")>0)
                 {
-                    Debug.Log("Mouse moved right");
                     transform.Rotate(0,0.5f*turnSpeed*Input.GetAxis("Mouse X"),0,Space.Self);
                 }
+                //mouse down
                 if (Input.GetAxis("Mouse Y")<0)
                 {
-                    Debug.Log("Mouse moved down");
                     transform.Rotate(-2*turnSpeed*-Input.GetAxis("Mouse Y"),0,0,Space.Self);
                 }
+                //mouse up
                 if (Input.GetAxis("Mouse Y")>0)
                 {
-                    Debug.Log("Mouse moved up");
                     transform.Rotate(2*turnSpeed*Input.GetAxis("Mouse Y"),0,0,Space.Self);
                 }
                 if (Input.GetKey("q"))
@@ -118,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
                 if (CurrentSpeed < maxSpeed)
                 {
                     CurrentSpeed = CurrentSpeed+acceleration;
-                    Debug.Log (CurrentSpeed);
+                    Debug.Log ("Speed" + CurrentSpeed);
                 }
             }
             if (Input.GetKey("left ctrl"))
@@ -126,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
                 if (CurrentSpeed > -15)
                 {
                     CurrentSpeed = CurrentSpeed-acceleration;
-                    Debug.Log (CurrentSpeed);
+                    Debug.Log ("Speed" + CurrentSpeed);
                 }
             }
         }
