@@ -99,7 +99,6 @@ public class PlayerMovement : MonoBehaviour
                 if (CurrentSpeed < maxSpeed)
                 {
                     CurrentSpeed = CurrentSpeed+acceleration;
-                    Debug.Log (CurrentSpeed);
                 }
             }
             if (Input.GetKey("s"))
@@ -107,7 +106,6 @@ public class PlayerMovement : MonoBehaviour
                 if (CurrentSpeed > -15)
                 {
                     CurrentSpeed = CurrentSpeed-acceleration;
-                    Debug.Log (CurrentSpeed);
                 }
             }
         }

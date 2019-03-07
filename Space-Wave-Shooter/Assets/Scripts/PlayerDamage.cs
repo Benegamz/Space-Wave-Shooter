@@ -39,7 +39,7 @@ public class PlayerDamage : MonoBehaviour
                     SceneManager.LoadScene("GameOver",LoadSceneMode.Additive);
                 }
             }
-            else
+            if (col.gameObject.tag == "Death")
             {
                 Destroy(gameObject);
                 SceneManager.LoadScene("GameOver",LoadSceneMode.Additive);

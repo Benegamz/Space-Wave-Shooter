@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 133953701}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -201,7 +201,7 @@ Transform:
   m_LocalScale: {x: 100, y: 100, z: 1000}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &253558926
 PrefabInstance:
@@ -218,7 +218,7 @@ PrefabInstance:
     - target: {fileID: 9026904918540203505, guid: abe51846aa95263478d930890ec0e78f,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Death
       objectReference: {fileID: 0}
     - target: {fileID: 9026904918540203504, guid: abe51846aa95263478d930890ec0e78f,
         type: 3}
@@ -258,7 +258,7 @@ PrefabInstance:
     - target: {fileID: 9026904918540203504, guid: abe51846aa95263478d930890ec0e78f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9026904918540203504, guid: abe51846aa95263478d930890ec0e78f,
         type: 3}
@@ -497,7 +497,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1526225463
 GameObject:
@@ -741,7 +741,7 @@ PrefabInstance:
     - target: {fileID: 9026904918540203505, guid: abe51846aa95263478d930890ec0e78f,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Death
       objectReference: {fileID: 0}
     - target: {fileID: 9026904918540203504, guid: abe51846aa95263478d930890ec0e78f,
         type: 3}
@@ -781,7 +781,7 @@ PrefabInstance:
     - target: {fileID: 9026904918540203504, guid: abe51846aa95263478d930890ec0e78f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9026904918540203504, guid: abe51846aa95263478d930890ec0e78f,
         type: 3}
@@ -959,7 +959,7 @@ RectTransform:
   - {fileID: 1576609411}
   - {fileID: 1526225466}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1016,7 +1016,7 @@ PrefabInstance:
     - target: {fileID: 7532205665105829173, guid: 27f05e3f29106b84c921392043b33536,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7532205665105829173, guid: 27f05e3f29106b84c921392043b33536,
         type: 3}
@@ -1033,6 +1033,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7532205664806000753, guid: 27f05e3f29106b84c921392043b33536,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532205664806000753, guid: 27f05e3f29106b84c921392043b33536,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532205664806000753, guid: 27f05e3f29106b84c921392043b33536,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532205664806000753, guid: 27f05e3f29106b84c921392043b33536,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532205664806000753, guid: 27f05e3f29106b84c921392043b33536,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532205664806000759, guid: 27f05e3f29106b84c921392043b33536,
+        type: 3}
+      propertyPath: missileAmount
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7532205664806000758, guid: 27f05e3f29106b84c921392043b33536,
         type: 3}
       propertyPath: speedText
@@ -1048,6 +1078,11 @@ PrefabInstance:
       propertyPath: missileText
       value: 
       objectReference: {fileID: 1526225464}
+    - target: {fileID: 7532205664806000761, guid: 27f05e3f29106b84c921392043b33536,
+        type: 3}
+      propertyPath: godMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27f05e3f29106b84c921392043b33536, type: 3}
 --- !u!1001 &9026904918166222833
@@ -1065,7 +1100,7 @@ PrefabInstance:
     - target: {fileID: 9026904918540203505, guid: abe51846aa95263478d930890ec0e78f,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Death
       objectReference: {fileID: 0}
     - target: {fileID: 9026904918540203504, guid: abe51846aa95263478d930890ec0e78f,
         type: 3}

@@ -10,10 +10,13 @@ public class GunBehaviour : MonoBehaviour
     int missileCooldownTimer = 0;
     public int fireCooldown = 2;
     public int missileFireCooldown = 50;
-    public int missileAmount = 4;
+    public int missileAmount = 5;
+    public int missileMax = 5;
+    public bool ammoRegeneration = true;
     void Start()
     {
      InvokeRepeating("Cooldown", 0, 0.1f);   
+     InvokeRepeating("AmmoRegeneration",0 ,10);
     }
 
     
@@ -43,6 +46,16 @@ public class GunBehaviour : MonoBehaviour
     {
         cooldownTimer--;
         missileCooldownTimer--;
+    }
+    void AmmoRegeneration()
+    {
+        if (ammoRegeneration)
+        {
+            if (missileAmount < missileMax)
+            {
+                missileAmount++;
+            }
+        }
     }
     
 }

@@ -3,23 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Target : MonoBehaviour
-{
-    public GameObject targetObject;
-    public int targetObjectDistance;
-}
 public class MissileTargeting : MonoBehaviour
 {
     Rigidbody rb;
     public int missileVelocity;
     public int rotationSpeed;
     GameObject currentTarget;
+    float angle = 0.0f;
     GameObject[] gos;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         InvokeRepeating ("MissileTargetFinding", 0, 2);
         gos = GameObject.FindGameObjectsWithTag("Enemy");
+        Destroy (gameObject,10);
     }
 
     void Update()
@@ -36,6 +33,11 @@ public class MissileTargeting : MonoBehaviour
         float distance = Mathf.Infinity;
         foreach (GameObject go in gos)
         {
+
+            Vector3 targRotation = Quaternion.LookRotation(go.transform.position - transform.position).eulerAngles;
+            Debug.Log (targRotation.x - transform.rotation.x);
+            Debug.Log (targRotation.y - transform.rotation.y);
+            Debug.Log (targRotation.z - transform.rotation.z);
             Vector3 diff = go.transform.position - position;
             float curDistance = diff.sqrMagnitude;
             if (curDistance < distance)
