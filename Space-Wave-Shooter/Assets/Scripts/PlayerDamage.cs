@@ -8,7 +8,7 @@ public class PlayerDamage : MonoBehaviour
    public int maxHP = 100;
    public bool regeneration = false;
    public int regenerationAmount = 1;
-   int currentHp;
+   public int currentHp;
    public bool godMode = false;
    void Start()
    {

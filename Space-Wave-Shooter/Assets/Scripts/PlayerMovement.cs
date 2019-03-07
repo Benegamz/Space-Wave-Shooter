@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float turnSpeed = 1;
     public int acceleration = 1;
-    int CurrentSpeed = 0;
+    public int CurrentSpeed = 0;
     public int maxSpeed = 10000;
     public float strafingSpeed = 1;
     public bool alternateKeymapping = false;
