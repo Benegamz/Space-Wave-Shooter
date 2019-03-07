@@ -13,6 +13,7 @@ public class PlayerDamage : MonoBehaviour
    void Start()
    {
        currentHp = maxHP;
+       InvokeRepeating("Regeneration",1,1);
    }
    void OnCollisionEnter (Collision col)
    {
