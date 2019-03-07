@@ -11,6 +11,7 @@ public class TurretDamage : MonoBehaviour
         if (col.gameObject.tag == "Bullet")
         {
             currentHp = currentHp - 10;
+            Debug.Log("TurretHp" + currentHp);
             if (currentHp <= 0)
             {
                 Destroy (gameObject);
