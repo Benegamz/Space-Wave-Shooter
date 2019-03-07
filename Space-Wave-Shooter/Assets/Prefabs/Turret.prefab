@@ -187,7 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   Bullet: {fileID: 3607432903934558934, guid: 3cab5fed6676a02469ffe590f43dcf78, type: 3}
-  radius: 100000
+  radius: 10000000
   FirePoints:
   - {fileID: 9026904918676528062}
   - {fileID: 9026904918937171744}

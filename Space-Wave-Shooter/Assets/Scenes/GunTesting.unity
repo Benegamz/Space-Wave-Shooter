@@ -330,6 +330,11 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 524275126}
+    - target: {fileID: 9026904917229448018, guid: abe51846aa95263478d930890ec0e78f,
+        type: 3}
+      propertyPath: radius
+      value: 10000000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abe51846aa95263478d930890ec0e78f, type: 3}
 --- !u!20 &445051983 stripped
@@ -764,6 +769,11 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 524275126}
+    - target: {fileID: 9026904917229448018, guid: abe51846aa95263478d930890ec0e78f,
+        type: 3}
+      propertyPath: radius
+      value: 10000000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abe51846aa95263478d930890ec0e78f, type: 3}
 --- !u!1 &1974327058
@@ -933,6 +943,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5537993741631024545, guid: 27f05e3f29106b84c921392043b33536,
+        type: 3}
+      propertyPath: alternateKeymapping
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5537993741631024546, guid: 27f05e3f29106b84c921392043b33536,
         type: 3}
       propertyPath: speedText
@@ -1072,5 +1087,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 524275126}
+    - target: {fileID: 9026904917229448018, guid: abe51846aa95263478d930890ec0e78f,
+        type: 3}
+      propertyPath: radius
+      value: 10000000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abe51846aa95263478d930890ec0e78f, type: 3}
