@@ -270,6 +270,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6049540415208316617, guid: abe51846aa95263478d930890ec0e78f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049540415208316617, guid: abe51846aa95263478d930890ec0e78f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049540415208316617, guid: abe51846aa95263478d930890ec0e78f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9181381156070548150, guid: abe51846aa95263478d930890ec0e78f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -607,6 +622,21 @@ PrefabInstance:
     - target: {fileID: 3975364846714140274, guid: 27f05e3f29106b84c921392043b33536,
         type: 3}
       propertyPath: alternateKeymapping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975364846714140279, guid: 27f05e3f29106b84c921392043b33536,
+        type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975364846714140279, guid: 27f05e3f29106b84c921392043b33536,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975364846714140279, guid: 27f05e3f29106b84c921392043b33536,
+        type: 3}
+      propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
