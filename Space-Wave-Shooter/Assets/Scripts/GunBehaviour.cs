@@ -5,8 +5,12 @@ using UnityEngine;
 public class GunBehaviour : MonoBehaviour
 {
     public GameObject Bullet;
+    public GameObject Missile;
     int cooldownTimer = 0;
-    public int FireCooldown = 2;
+    int missileCooldownTimer = 0;
+    public int fireCooldown = 2;
+    public int missileFireCooldown = 50;
+    public int missileAmount = 4;
     void Start()
     {
      InvokeRepeating("Cooldown", 0, 0.1f);   
@@ -20,13 +24,25 @@ public class GunBehaviour : MonoBehaviour
             if (Input.GetKey("mouse 0"))
             {
                 Instantiate(Bullet, transform.position + (transform.forward * 20), transform.rotation);
-                cooldownTimer = FireCooldown;
+                cooldownTimer = fireCooldown;
+            }
+        }
+        if (missileCooldownTimer <= 0)
+        {
+            if (Input.GetKey("space"))
+            {
+                if (missileAmount > 0)
+                {
+                    Instantiate(Missile,transform.position + (transform.forward * 20), transform.rotation);
+                    missileAmount--;
+                    missileCooldownTimer = missileFireCooldown;                }
             }
         }
     }
     void Cooldown ()
     {
         cooldownTimer--;
+        missileCooldownTimer--;
     }
     
 }
