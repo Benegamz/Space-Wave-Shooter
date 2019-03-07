@@ -21,6 +21,10 @@ public class TurretBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
+        Quaternion targetRotation = Quaternion.LookRotation (Player.transform.position - transform.position);
+
+
+
 
 
         float distance = Vector3.Distance(transform.position,Player.transform.position);
