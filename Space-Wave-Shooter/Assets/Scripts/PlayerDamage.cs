@@ -25,12 +25,14 @@ public class PlayerDamage : MonoBehaviour
                 Debug.Log ("HP:" + currentHp);
                 if (currentHp <= 0)
                 {
-                    SceneManager.LoadScene("GameOver");
+                    Destroy(gameObject);
+                    SceneManager.LoadScene("GameOver",LoadSceneMode.Additive);
                 }
             }
             else
             {
-                SceneManager.LoadScene("GameOver");
+                Destroy(gameObject);
+                SceneManager.LoadScene("GameOver",LoadSceneMode.Additive);
             }
        }
        
