@@ -38,6 +38,7 @@ public class MissileTargeting : MonoBehaviour
             Debug.Log (targRotation.x - transform.rotation.x);
             Debug.Log (targRotation.y - transform.rotation.y);
             Debug.Log (targRotation.z - transform.rotation.z);
+            
             Vector3 diff = go.transform.position - position;
             float curDistance = diff.sqrMagnitude;
             if (curDistance < distance)
