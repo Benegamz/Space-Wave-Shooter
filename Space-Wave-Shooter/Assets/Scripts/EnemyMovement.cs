@@ -35,12 +35,7 @@ public class EnemyMovement : MonoBehaviour
 
         if(Physics.Raycast(playerRay,out hit)) {
             if(hit.collider.tag == "Player") {
-                Debug.Log("Able to move");
-
                 rb.velocity = transform.TransformDirection(Vector3.forward) * flySpeed * Time.deltaTime;
-            }
-            else {
-                Debug.Log("Not Player");
             }
         }
     }
