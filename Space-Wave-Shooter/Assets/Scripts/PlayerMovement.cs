@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     int CurrentSpeed = 0;
     public int maxSpeed = 10000;
     public float strafingSpeed = 1;
+    public bool alternateKeymapping = false;
     Rigidbody rb;
     void Start()
     {
@@ -23,33 +24,63 @@ public class PlayerMovement : MonoBehaviour
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-            if (Input.GetAxis("Mouse X")<0)
+            if (alternateKeymapping == false)
             {
-                Debug.Log("Mouse moved left");
-                transform.Rotate(0,-0.5f*turnSpeed*-Input.GetAxis("Mouse X"),0,Space.Self);
+                if (Input.GetAxis("Mouse X")<0)
+                {
+                    Debug.Log("Mouse moved left");
+                    transform.Rotate(0,-0.5f*turnSpeed*-Input.GetAxis("Mouse X"),0,Space.Self);
+                }
+                if (Input.GetAxis("Mouse X")>0)
+                {
+                    Debug.Log("Mouse moved right");
+                    transform.Rotate(0,0.5f*turnSpeed*Input.GetAxis("Mouse X"),0,Space.Self);
+                }
+                if (Input.GetAxis("Mouse Y")<0)
+                {
+                    Debug.Log("Mouse moved down");
+                    transform.Rotate(-2*turnSpeed*-Input.GetAxis("Mouse Y"),0,0,Space.Self);
+                }
+                if (Input.GetAxis("Mouse Y")>0)
+                {
+                    Debug.Log("Mouse moved up");
+                    transform.Rotate(2*turnSpeed*Input.GetAxis("Mouse Y"),0,0,Space.Self);
+                }
+                if (Input.GetKey("q"))
+                {
+                    transform.Rotate(0,0,2*turnSpeed,Space.Self);
+                }
+                if (Input.GetKey("e"))
+                {
+                    transform.Rotate(0,0,-2*turnSpeed,Space.Self);
+                }
             }
-            if (Input.GetAxis("Mouse X")>0)
+            if (alternateKeymapping)
             {
-                Debug.Log("Mouse moved right");
-                transform.Rotate(0,0.5f*turnSpeed*Input.GetAxis("Mouse X"),0,Space.Self);
-            }
-            if (Input.GetAxis("Mouse Y")<0)
-            {
-                Debug.Log("Mouse moved down");
-                transform.Rotate(-2*turnSpeed*-Input.GetAxis("Mouse Y"),0,0,Space.Self);
-            }
-            if (Input.GetAxis("Mouse Y")>0)
-            {
-                Debug.Log("Mouse moved up");
-                transform.Rotate(2*turnSpeed*Input.GetAxis("Mouse Y"),0,0,Space.Self);
-            }
-            if (Input.GetKey("q"))
-            {
-                transform.Rotate(0,0,2*turnSpeed,Space.Self);
-            }
-            if (Input.GetKey("e"))
-            {
-                transform.Rotate(0,0,-2*turnSpeed,Space.Self);
+                if (Input.GetKey("w"))
+                {
+                    transform.Rotate(2*turnSpeed,0,0,Space.Self);
+                }
+                if (Input.GetKey("s"))
+                {
+                    transform.Rotate(-2*turnSpeed,0,0,Space.Self);
+                }
+                if (Input.GetKey("a"))
+                {
+                    transform.Rotate(0,-0.5f*turnSpeed,0,Space.Self);
+                }
+                if (Input.GetKey("d"))
+                {
+                    transform.Rotate(0,0.5f*turnSpeed,0,Space.Self);
+                }
+                if (Input.GetKey("q"))
+                {
+                    transform.Rotate(0,0,2*turnSpeed,Space.Self);
+                }
+                if (Input.GetKey("e"))
+                {
+                    transform.Rotate(0,0,-2*turnSpeed,Space.Self);
+                }
             }
         }
         else
@@ -57,32 +88,46 @@ public class PlayerMovement : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
-        if (Input.GetKey("d"))
-        {
-            rb.AddRelativeForce(1*strafingSpeed,0,0);
-        }
-        if (Input.GetKey("a"))
-        {
-            rb.AddRelativeForce(-1*strafingSpeed,0,0);
-        }
         rb.velocity = transform.forward * CurrentSpeed;
     }
     void SpeedManagement ()
     {
-        if (Input.GetKey("w"))
+        if (alternateKeymapping == false)
         {
-            if (CurrentSpeed < maxSpeed)
+            if (Input.GetKey("w"))
             {
-                CurrentSpeed = CurrentSpeed+acceleration;
-                Debug.Log (CurrentSpeed);
+                if (CurrentSpeed < maxSpeed)
+                {
+                    CurrentSpeed = CurrentSpeed+acceleration;
+                    Debug.Log (CurrentSpeed);
+                }
+            }
+            if (Input.GetKey("s"))
+            {
+                if (CurrentSpeed > -15)
+                {
+                    CurrentSpeed = CurrentSpeed-acceleration;
+                    Debug.Log (CurrentSpeed);
+                }
             }
         }
-        if (Input.GetKey("s"))
+        if (alternateKeymapping)
         {
-            if (CurrentSpeed > -15)
+            if (Input.GetKey("left shift"))
             {
-                CurrentSpeed = CurrentSpeed-acceleration;
-                Debug.Log (CurrentSpeed);
+                if (CurrentSpeed < maxSpeed)
+                {
+                    CurrentSpeed = CurrentSpeed+acceleration;
+                    Debug.Log (CurrentSpeed);
+                }
+            }
+            if (Input.GetKey("left ctrl"))
+            {
+                if (CurrentSpeed > -15)
+                {
+                    CurrentSpeed = CurrentSpeed-acceleration;
+                    Debug.Log (CurrentSpeed);
+                }
             }
         }
     }
