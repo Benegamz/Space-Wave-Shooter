@@ -8,7 +8,7 @@ public class TurretBehavior : MonoBehaviour
     public GameObject Bullet;
     public float radius = 5;
     public GameObject[] FirePoints;
-
+    public float strength = 0.5f;
     float cooldownTimer = 0f;
     public float FireCooldown = 1.5f;
 
@@ -22,7 +22,8 @@ public class TurretBehavior : MonoBehaviour
     void Update()
     {   
         Quaternion targetRotation = Quaternion.LookRotation (Player.transform.position - transform.position);
-
+        float str = Mathf.Min (strength * Time.deltaTime, 1);
+        transform.rotation = Quaternion.Lerp (transform.rotation, targetRotation, str);
 
 
 
