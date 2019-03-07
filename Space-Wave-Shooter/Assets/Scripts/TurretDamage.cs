@@ -17,5 +17,14 @@ public class TurretDamage : MonoBehaviour
                 Destroy (gameObject);
             }
         }
+        if (col.gameObject.tag == "Missile")
+        {
+            currentHp = currentHp - 50;
+            Debug.Log("TurretHp" + currentHp);
+            if (currentHp <= 0)
+            {
+                Destroy (gameObject);
+            }
+        }
     }
 }

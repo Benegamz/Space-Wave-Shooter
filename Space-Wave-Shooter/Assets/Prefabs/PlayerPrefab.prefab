@@ -258,7 +258,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 3607432903934558934, guid: 3cab5fed6676a02469ffe590f43dcf78, type: 3}
-  FireCooldown: 2
+  Missile: {fileID: 1747270415124128608, guid: 6f9ae3a91cb37f54a9115c51cdd0c39d, type: 3}
+  fireCooldown: 2
+  missileAmount: 4
 --- !u!114 &5537993741631024546
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -215,6 +215,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 9026904918540203505, guid: abe51846aa95263478d930890ec0e78f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 9026904918540203504, guid: abe51846aa95263478d930890ec0e78f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -654,6 +659,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9026904918540203505, guid: abe51846aa95263478d930890ec0e78f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 9026904918540203504, guid: abe51846aa95263478d930890ec0e78f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -943,11 +953,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5537993741631024545, guid: 27f05e3f29106b84c921392043b33536,
+    - target: {fileID: 5537993741631024547, guid: 27f05e3f29106b84c921392043b33536,
         type: 3}
-      propertyPath: alternateKeymapping
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: Missile
+      value: 
+      objectReference: {fileID: 1747270415124128608, guid: 6f9ae3a91cb37f54a9115c51cdd0c39d,
+        type: 3}
     - target: {fileID: 5537993741631024546, guid: 27f05e3f29106b84c921392043b33536,
         type: 3}
       propertyPath: speedText
@@ -971,6 +982,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026904918540203505, guid: abe51846aa95263478d930890ec0e78f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 9026904918540203504, guid: abe51846aa95263478d930890ec0e78f,
         type: 3}

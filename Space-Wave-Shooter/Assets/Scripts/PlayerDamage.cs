@@ -29,6 +29,16 @@ public class PlayerDamage : MonoBehaviour
                     SceneManager.LoadScene("GameOver",LoadSceneMode.Additive);
                 }
             }
+            if (col.gameObject.tag == "Missile")
+            {
+                currentHp = currentHp - 50;
+                Debug.Log ("HP:" + currentHp);
+                if (currentHp <= 0)
+                {
+                    Destroy(gameObject);
+                    SceneManager.LoadScene("GameOver",LoadSceneMode.Additive);
+                }
+            }
             else
             {
                 Destroy(gameObject);
