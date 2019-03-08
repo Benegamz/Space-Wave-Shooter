@@ -57,6 +57,7 @@ public class EnemyMissileTargeting : MonoBehaviour
         Quaternion targetRotation = Quaternion.LookRotation (targetPrediction - transform.position);
         float str = Mathf.Min (rotationSpeed * Time.deltaTime, 1);
         transform.rotation = Quaternion.Lerp (transform.rotation, targetRotation, str);
+
         if (currentTarget = GameObject.Find("Player"))
         {
             followingPlayer = true;

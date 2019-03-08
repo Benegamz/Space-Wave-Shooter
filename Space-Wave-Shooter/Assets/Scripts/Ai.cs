@@ -8,13 +8,14 @@ public class Ai : MonoBehaviour
 
     public float movementSpeed;
     public float rotaionalDamp;
-
+    Rigidbody rb;
     public float rayCastOffset;
     public float detectionDistance;
 
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         player = GameObject.Find("Player");
     }
 
@@ -26,7 +27,7 @@ public class Ai : MonoBehaviour
     }
 
     void Move() {
-        transform.position += transform.forward * movementSpeed * Time.deltaTime;
+        rb.velocity = transform.forward * movementSpeed;
     }
 
     void Turn() {
