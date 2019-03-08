@@ -22,6 +22,6 @@ public class FlakBulletBehaviour : MonoBehaviour
 
     void Explosion()
     {
-        target.
+
     }
 }

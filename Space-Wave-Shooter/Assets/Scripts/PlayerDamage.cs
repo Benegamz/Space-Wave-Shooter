@@ -57,6 +57,7 @@ public class PlayerDamage : MonoBehaviour
    }
    public void ExplosionDamage (float Distance, int ExplosionRange, int maxExplosionDamage)
    {
-       float Value = ExplosionRange 
+       float Value = ExplosionRange / Distance;
+       Debug.Log(Value);
    }
 }
