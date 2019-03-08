@@ -14,7 +14,7 @@ public class MissileTargeting : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        InvokeRepeating ("MissileTargetFinding", 0, 2);
+        InvokeRepeating ("MissileTargetFinding", 0, 0.1f);
         gos = GameObject.FindGameObjectsWithTag("Enemy");
         Destroy (gameObject,10);
     }
@@ -29,6 +29,7 @@ public class MissileTargeting : MonoBehaviour
     }
     void MissileTargetFinding ()
     {
+        currentTarget = null;
         Vector3 position = transform.position;
         float distance = Mathf.Infinity;
         foreach (GameObject go in gos)

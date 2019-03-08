@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Missile
   - Death
+  - FlakBullet
+  - Friendly
   layers:
   - Default
   - TransparentFX
