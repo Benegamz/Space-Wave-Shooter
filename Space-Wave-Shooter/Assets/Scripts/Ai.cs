@@ -4,68 +4,104 @@ using UnityEngine;
 
 public class Ai : MonoBehaviour
 {   
-    public GameObject player;
+    private GameObject player;
+    private Rigidbody rb;
+
+    public GameObject point;
 
     public float movementSpeed;
-    public float rotaionalDamp;
+    public float rotationSpeed;
+    public float checkingAngle;
+    public float detectionRange;
+    public float stopDistance;
 
-    public float rayCastOffset;
-    public float detectionDistance;
-
-    // Start is called before the first frame update
     void Start()
-    {
+    {   
         player = GameObject.Find("Player");
+        rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
-    {
+    {   
         Pathfinding();
-        Move();
     }
 
-    void Move() {
-        transform.position += transform.forward * movementSpeed * Time.deltaTime;
+    void Move()
+    {
+        rb.velocity = transform.TransformDirection(Vector3.forward) * Time.deltaTime * movementSpeed;
     }
 
-    void Turn() {
-        Vector3 pos = player.transform.position - transform.position;
-        Quaternion rotation = Quaternion.LookRotation(pos);
-        transform.rotation = Quaternion.Slerp(transform.rotation,rotation,rotaionalDamp * Time.deltaTime);
-    }  
+    void Stop()
+    {
+        rb.velocity = Vector3.zero; 
+    }
 
-    void Pathfinding() {
-
+    void Turn() 
+    {
         Vector3 direction = player.transform.position - transform.position;
+        Vector3 newDir = Vector3.RotateTowards(transform.forward, direction, rotationSpeed * Time.deltaTime, 0.0f);
+        transform.rotation = Quaternion.LookRotation(newDir);
+    }
+
+    void Pathfinding() 
+    {
+        Vector3 direction = player.transform.position - transform.position;
+        float distance = Vector3.Distance(transform.position, player.transform.position);
+
         Debug.DrawRay(transform.position, direction, Color.red);
 
+        Debug.DrawRay(point.transform.position, transform.TransformDirection(Vector3.forward * checkingAngle + new Vector3(1,0,0)) * detectionRange, Color.cyan);
+        Debug.DrawRay(point.transform.position, transform.TransformDirection(Vector3.forward * checkingAngle + new Vector3(-1,0,0)) * detectionRange, Color.cyan);
+        Debug.DrawRay(point.transform.position, transform.TransformDirection(Vector3.forward * checkingAngle + new Vector3(0,1,0)) * detectionRange, Color.cyan);
+        Debug.DrawRay(point.transform.position, transform.TransformDirection(Vector3.forward * checkingAngle + new Vector3(0,-1,0)) * detectionRange, Color.cyan);
+       
+        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * detectionRange, Color.blue);
+
         RaycastHit hit;
-        Vector3 raycastOffset = Vector3.zero;
 
-        Vector3 left = transform.position - transform.right * rayCastOffset;
-        Vector3 right = transform.position + transform.right * rayCastOffset;
-        Vector3 up = transform.position + transform.up * rayCastOffset;
-        Vector3 down = transform.position - transform.up * rayCastOffset;
-
-        Debug.DrawRay(left, transform.forward * detectionDistance, Color.cyan);
-        Debug.DrawRay(right, transform.forward * detectionDistance, Color.cyan);
-        Debug.DrawRay(up, transform.forward * detectionDistance, Color.cyan);
-        Debug.DrawRay(down, transform.forward * detectionDistance, Color.cyan);
-
-        if(Physics.Raycast(left,transform.forward,out hit,detectionDistance))
-            raycastOffset += Vector3.right;
-        else if(Physics.Raycast(right,transform.forward,out hit,detectionDistance))
-            raycastOffset -= Vector3.right;
-
-        if(Physics.Raycast(up,transform.forward,out hit,detectionDistance))
-            raycastOffset -= Vector3.up;
-        else if(Physics.Raycast(down,transform.forward,out hit,detectionDistance))
-            raycastOffset += Vector3.up;
-
-        if(raycastOffset != Vector3.zero)
-            transform.Rotate(raycastOffset * Time.deltaTime);
-        else
+        if (distance <= stopDistance){
+            Stop();
             Turn();
+        }
+        else if(Physics.Raycast(point.transform.position, transform.TransformDirection(Vector3.forward * checkingAngle + new Vector3(1,0,0)), out hit, detectionRange)) {
+            if(hit.collider.tag != "Player") {
+                Move();
+            }
+            else {
+                Move();
+                Turn();
+            }
+        }
+        else if(Physics.Raycast(point.transform.position, transform.TransformDirection(Vector3.forward * checkingAngle + new Vector3(-1,0,0)), out hit, detectionRange)) {
+            if(hit.collider.tag != "Player") {
+                Move();
+            }
+            else {
+                Move();
+                Turn();
+            }
+        }
+        else if(Physics.Raycast(point.transform.position, transform.TransformDirection(Vector3.forward * checkingAngle + new Vector3(0,1,0)), out hit, detectionRange)) {
+            if(hit.collider.tag != "Player") {
+                Move();
+            }
+            else {
+                Move();
+                Turn();
+            }
+        }
+        else if(Physics.Raycast(point.transform.position, transform.TransformDirection(Vector3.forward * checkingAngle + new Vector3(0,-1,0)), out hit, detectionRange)) {
+            if(hit.collider.tag != "Player") {
+                Move();
+            }
+            else {
+                Move();
+                Turn();
+            }
+        }
+        else {
+            Move();
+            Turn();
+        }      
     }
 }
