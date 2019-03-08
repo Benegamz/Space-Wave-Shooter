@@ -31,9 +31,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7532205664806000760}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 235.20749, y: 50.0335, z: -54.34561}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7532205665893168373}
   m_Father: {fileID: 7532205665105829173}
@@ -148,6 +148,8 @@ MonoBehaviour:
   fireCooldown: 2
   missileFireCooldown: 50
   missileAmount: 4
+  missileMax: 5
+  ammoRegeneration: 1
 --- !u!114 &7532205664806000758
 MonoBehaviour:
   m_ObjectHideFlags: 0
