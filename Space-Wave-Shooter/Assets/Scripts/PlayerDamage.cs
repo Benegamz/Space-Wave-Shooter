@@ -8,7 +8,7 @@ public class PlayerDamage : MonoBehaviour
    public int maxHP = 100;
    public bool regeneration = false;
    public int regenerationAmount = 1;
-   public int currentHp;
+   public float currentHp;
    public bool godMode = false;
    void Start()
    {
@@ -57,7 +57,9 @@ public class PlayerDamage : MonoBehaviour
    }
    public void ExplosionDamage (float Distance, int ExplosionRange, int maxExplosionDamage)
    {
-       float Value = ExplosionRange / Distance;
-       Debug.Log(Value);
+       if (Distance <= ExplosionRange)
+       {
+       currentHp = currentHp - maxExplosionDamage;
+       }
    }
 }

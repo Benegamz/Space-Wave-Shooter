@@ -19,8 +19,4 @@ public class UI : MonoBehaviour
         hpText.text = "Hp:" + playerDamage.currentHp;
         missileText.text = "Missiles:" + missileStatus.missileAmount;
     }
-    void Start()
-    {
-        Debug.Log (playerDamage);
-    }
 }
