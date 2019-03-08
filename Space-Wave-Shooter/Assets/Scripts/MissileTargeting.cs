@@ -6,10 +6,10 @@ using UnityEngine;
 public class MissileTargeting : MonoBehaviour
 {
     Rigidbody rb;
+    public GameObject targeter;
     public int missileVelocity;
     public int rotationSpeed;
     GameObject currentTarget;
-    float angle = 0.0f;
     GameObject[] gos;
     void Start()
     {
@@ -34,17 +34,29 @@ public class MissileTargeting : MonoBehaviour
         foreach (GameObject go in gos)
         {
 
-            Vector3 targRotation = Quaternion.LookRotation(go.transform.position - transform.position).eulerAngles;
+            /*Vector3 targRotation = Quaternion.LookRotation(go.transform.position - transform.position).eulerAngles;
             Debug.Log (targRotation.x - transform.rotation.x);
             Debug.Log (targRotation.y - transform.rotation.y);
-            Debug.Log (targRotation.z - transform.rotation.z);
-            
-            Vector3 diff = go.transform.position - position;
-            float curDistance = diff.sqrMagnitude;
-            if (curDistance < distance)
+            Debug.Log (targRotation.z - transform.rotation.z);*/
+            targeter.transform.LookAt(go.transform);
+            Vector3 missileEulerRotation = transform.rotation.eulerAngles;
+            Vector3 targeterEulerRotation = targeter.transform.rotation.eulerAngles;
+            Vector3 rotationDifference = new Vector3 (Mathf.Abs(targeterEulerRotation.x - missileEulerRotation.x),Mathf.Abs(targeterEulerRotation.y - missileEulerRotation.y),Mathf.Abs(targeterEulerRotation.z - missileEulerRotation.z)); 
+            Debug.Log("Targeterrotation:" + targeterEulerRotation);
+            Debug.Log("Missilerotation:" + missileEulerRotation);
+            Debug.Log("rotationdifference:" + rotationDifference);
+            if (rotationDifference.x < 55 | rotationDifference.x > 305)
             {
-                currentTarget = go;
-                distance = curDistance;
+                if (rotationDifference.y < 55 | rotationDifference.y > 305)
+                {
+                    Vector3 diff = go.transform.position - position;
+                    float curDistance = diff.sqrMagnitude;
+                    if (curDistance < distance)
+                    {
+                        currentTarget = go;
+                        distance = curDistance;
+                    }
+                }
             }
         }
     }
