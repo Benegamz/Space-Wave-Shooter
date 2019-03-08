@@ -44,7 +44,6 @@ public class FlakTurretBehavior : MonoBehaviour
                 flakBulletBehaviour = CurrentBullet.GetComponent<FlakBulletBehaviour>();
                 flakBulletBehaviour.target = Player;
                 cooldownTimer = FireCooldown;
-                Debug.Log("FIRE");
             }
         }
     }

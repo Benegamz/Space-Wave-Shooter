@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 9026904917229448017}
   - component: {fileID: 9026904917229448018}
   - component: {fileID: 9026904917229448021}
+  - component: {fileID: 604318525649082587}
   m_Layer: 0
   m_Name: TurretBody
   m_TagString: Enemy
@@ -206,6 +207,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHp: 50
+--- !u!54 &604318525649082587
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9026904917229448047}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 14
+  m_CollisionDetection: 0
 --- !u!1 &9026904918001587663
 GameObject:
   m_ObjectHideFlags: 0

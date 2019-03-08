@@ -2,21 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UI : MonoBehaviour
 {
     public PlayerMovement playerMovement;
     public PlayerDamage playerDamage;
     public GunBehaviour missileStatus;
-    public Text speedText;
-    public Text hpText;
-    public Text missileText;
+    public TextMeshProUGUI speedTextMesh;
+    public TextMeshProUGUI hpTextMesh;
+    public TextMeshProUGUI missileTextMesh;
+    public TextMeshProUGUI missileWarningTextMesh;
 
-    // Update is called once per frame
+
+    void Start()
+    {
+        
+    }
     void Update()
     {
-        speedText.text = "Speed:" + playerMovement.CurrentSpeed;
-        hpText.text = "Hp:" + playerDamage.currentHp;
-        missileText.text = "Missiles:" + missileStatus.missileAmount;
+        DataHandling.CheckMissile();
+        speedTextMesh.text = "Speed:" + playerMovement.CurrentSpeed;
+        hpTextMesh.text = "Hp:" + playerDamage.currentHp;
+        missileTextMesh.text = "Missiles:" + missileStatus.missileAmount;
+        if (DataHandling.IsChasedByMissile)
+        {
+            missileWarningTextMesh.text = "WARNING";
+        }
+        else
+        {
+            missileWarningTextMesh.text = "";
+        }
     }
 }

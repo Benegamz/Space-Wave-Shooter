@@ -21,9 +21,9 @@ public class FlakBulletBehaviour : MonoBehaviour
         rigidbody.velocity = transform.forward * bulletSpeed;
         startTargetDistance = Vector3.Distance(target.transform.position, transform.position);
         explosionTimer = startTargetDistance / (rigidbody.velocity.x + rigidbody.velocity.y + rigidbody.velocity.z);
-        Debug.Log(startTargetDistance);
-        Debug.Log(rigidbody.velocity.x + rigidbody.velocity.y + rigidbody.velocity.z);
-        Debug.Log(explosionTimer);
+
+
+
         InvokeRepeating("Explosion",explosionTimer ,0 );
     }
     void Update()
