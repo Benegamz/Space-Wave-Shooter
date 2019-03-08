@@ -60,6 +60,11 @@ public class PlayerDamage : MonoBehaviour
        if (Distance <= ExplosionRange)
        {
        currentHp = currentHp - maxExplosionDamage;
+       if (currentHp <= 0)
+                {
+                    Destroy(gameObject);
+                    SceneManager.LoadScene("GameOver",LoadSceneMode.Additive);
+                }
        }
    }
 }

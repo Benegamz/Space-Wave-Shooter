@@ -17,7 +17,6 @@ public class FlakBulletBehaviour : MonoBehaviour
 
     void Start()
     {
-        target = GameObject.Find("Player");
         rigidbody = GetComponent<Rigidbody>();
         rigidbody.velocity = transform.forward * bulletSpeed;
         startTargetDistance = Vector3.Distance(target.transform.position, transform.position);
