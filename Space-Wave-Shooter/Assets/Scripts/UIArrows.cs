@@ -1,0 +1,71 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+
+public class UITarget : MonoBehaviour
+    {
+        public GameObject Target;
+        public Image uimarker;
+    } 
+public class UIArrows : MonoBehaviour
+{
+
+    List<GameObject> EnemiesList = new List<GameObject>();
+    List<UITarget> uIMarkers = new List<UITarget>();
+    public Camera cam;
+    public Canvas Parent;
+    Vector3 OnCameraPosition;
+    public Image uIMarker;
+    Image currentMarker;
+    RectTransform currentRectTransform;
+
+    void Update()
+    {
+        foreach(UITarget uiMarker in uIMarkers)
+        {
+            Destroy(uiMarker.uimarker);
+        }
+        EnemiesList.Clear();
+        uIMarkers.Clear(); 
+        GameObject[] Enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in Enemies)
+        {
+            EnemiesList.Add(enemy);
+        }
+
+
+
+
+        foreach(GameObject enemy in EnemiesList)
+        {
+            OnCameraPosition = cam.WorldToViewportPoint(enemy.transform.position);
+            Vector3 OnCanvasPosition = new Vector3(OnCameraPosition.x, OnCameraPosition.y, 0);
+            if (OnCameraPosition.x >= 0 && OnCameraPosition.x <= 1 && OnCameraPosition.y >= 0 && OnCameraPosition.y <= 1)
+            {
+                currentMarker = (Instantiate(uIMarker, Parent.transform, false));
+                UITarget currentUITarget = new UITarget();
+                currentUITarget.uimarker = currentMarker;
+                currentUITarget.Target = enemy;
+                uIMarkers.Add(currentUITarget);
+                currentRectTransform = currentMarker.gameObject.GetComponent<RectTransform>();
+                currentRectTransform.SetInsetAndSizeFromParentEdge (RectTransform.Edge.Left, OnCanvasPosition.x * 1326 - 25, 50);
+                currentRectTransform.SetInsetAndSizeFromParentEdge (RectTransform.Edge.Bottom, OnCanvasPosition.y * 636 - 25, 50);
+                currentRectTransform.localEulerAngles = new Vector3 (0,0,0);
+
+            }
+            else
+            {
+                foreach (UITarget uITarget in uIMarkers)
+                {
+                    if(uITarget.Target == enemy)
+                    {
+                        Destroy(uITarget.uimarker);
+                    }
+                }
+            }
+        } 
+    }
+}

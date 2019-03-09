@@ -27,6 +27,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyMissile
       objectReference: {fileID: 0}
+    - target: {fileID: 1747270415124128608, guid: 6f9ae3a91cb37f54a9115c51cdd0c39d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 9213401910771993886, guid: 6f9ae3a91cb37f54a9115c51cdd0c39d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -82,11 +87,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7210040180635001103, guid: 6f9ae3a91cb37f54a9115c51cdd0c39d,
-        type: 3}
-      propertyPath: targeter
-      value: 
-      objectReference: {fileID: 37084752449722980}
     - target: {fileID: 2864194369952644775, guid: 6f9ae3a91cb37f54a9115c51cdd0c39d,
         type: 3}
       propertyPath: m_TagString
@@ -102,6 +102,11 @@ PrefabInstance:
       propertyPath: m_Height
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 7210040180635001103, guid: 6f9ae3a91cb37f54a9115c51cdd0c39d,
+        type: 3}
+      propertyPath: targeter
+      value: 
+      objectReference: {fileID: 37084752449722980}
     m_RemovedComponents:
     - {fileID: 7210040180635001103, guid: 6f9ae3a91cb37f54a9115c51cdd0c39d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6f9ae3a91cb37f54a9115c51cdd0c39d, type: 3}

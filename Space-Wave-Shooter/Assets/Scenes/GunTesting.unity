@@ -662,6 +662,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372151723}
   m_CullTransparentMesh: 0
+--- !u!1 &439100242 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7472254723762728973, guid: 27f05e3f29106b84c921392043b33536,
+    type: 3}
+  m_PrefabInstance: {fileID: 7472254722237343357}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &439100244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439100242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb82a8411a2d28242a1cd9d4fac5396e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 445051983}
+  Parent: {fileID: 1974327061}
+  uIMarker: {fileID: 7208728449988911127, guid: d9e32ebc8a4b21d4ab5787e9919cddd9,
+    type: 3}
 --- !u!20 &445051983 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 7472254722615267890, guid: 27f05e3f29106b84c921392043b33536,
@@ -1800,6 +1822,16 @@ PrefabInstance:
       propertyPath: missileWarningTextMesh
       value: 
       objectReference: {fileID: 665826473}
+    - target: {fileID: 7472254722513711725, guid: 27f05e3f29106b84c921392043b33536,
+        type: 3}
+      propertyPath: near clip plane
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7472254722513711725, guid: 27f05e3f29106b84c921392043b33536,
+        type: 3}
+      propertyPath: field of view
+      value: 60
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27f05e3f29106b84c921392043b33536, type: 3}
 --- !u!1001 &9026904918166222833
