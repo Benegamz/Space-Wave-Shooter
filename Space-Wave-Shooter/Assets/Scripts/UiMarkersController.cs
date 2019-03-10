@@ -32,6 +32,10 @@ public class UiMarkersController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Enemy == null)
+        {
+            Destroy(gameObject);
+        }
         OnCameraPosition = cam.WorldToViewportPoint(Enemy.transform.position);
             Vector3 OnCanvasPosition = new Vector3(OnCameraPosition.x, OnCameraPosition.y, 0);
             if (OnCameraPosition.x >= 0 && OnCameraPosition.x <= 1 && OnCameraPosition.y >= 0 && OnCameraPosition.y <= 1)

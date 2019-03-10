@@ -30,7 +30,7 @@ PrefabInstance:
     - target: {fileID: 1747270415124128608, guid: 6f9ae3a91cb37f54a9115c51cdd0c39d,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Missile
       objectReference: {fileID: 0}
     - target: {fileID: 9213401910771993886, guid: 6f9ae3a91cb37f54a9115c51cdd0c39d,
         type: 3}
