@@ -9,6 +9,8 @@ public class UITarget : MonoBehaviour
     {
         public GameObject Target;
         public Image uimarker;
+        public Camera cam;
+        public int classIdentifier;
     } 
 public class UIArrows : MonoBehaviour
 {
@@ -21,15 +23,10 @@ public class UIArrows : MonoBehaviour
     public Image uIMarker;
     Image currentMarker;
     RectTransform currentRectTransform;
+    int counter;
 
-    void Update()
+    void Start()
     {
-        foreach(UITarget uiMarker in uIMarkers)
-        {
-            Destroy(uiMarker.uimarker);
-        }
-        EnemiesList.Clear();
-        uIMarkers.Clear(); 
         GameObject[] Enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in Enemies)
         {
@@ -45,10 +42,14 @@ public class UIArrows : MonoBehaviour
             Vector3 OnCanvasPosition = new Vector3(OnCameraPosition.x, OnCameraPosition.y, 0);
             if (OnCameraPosition.x >= 0 && OnCameraPosition.x <= 1 && OnCameraPosition.y >= 0 && OnCameraPosition.y <= 1)
             {
+                counter++;
                 currentMarker = (Instantiate(uIMarker, Parent.transform, false));
+                currentMarker.GetComponent<UiMarkersController>().Identifier = counter;
                 UITarget currentUITarget = new UITarget();
                 currentUITarget.uimarker = currentMarker;
                 currentUITarget.Target = enemy;
+                currentUITarget.cam = cam;
+                currentUITarget.classIdentifier = counter;
                 uIMarkers.Add(currentUITarget);
                 currentRectTransform = currentMarker.gameObject.GetComponent<RectTransform>();
                 currentRectTransform.SetInsetAndSizeFromParentEdge (RectTransform.Edge.Left, OnCanvasPosition.x * 1326 - 25, 50);
@@ -56,16 +57,7 @@ public class UIArrows : MonoBehaviour
                 currentRectTransform.localEulerAngles = new Vector3 (0,0,0);
 
             }
-            else
-            {
-                foreach (UITarget uITarget in uIMarkers)
-                {
-                    if(uITarget.Target == enemy)
-                    {
-                        Destroy(uITarget.uimarker);
-                    }
-                }
-            }
-        } 
+        }
+        DataHandling.forIdentifing = uIMarkers;
     }
 }

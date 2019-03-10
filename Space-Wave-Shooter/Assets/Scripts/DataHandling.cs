@@ -7,6 +7,7 @@ public static class DataHandling
     public static bool IsChasedByMissile;
     public static int chasingAmount;
     public static List <bool> ChasingMissiles = new List<bool>();
+    public static List <UITarget> forIdentifing = new List<UITarget>();
     public static void CheckMissile()
     {
         chasingAmount = ChasingMissiles.Count; 
