@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UiMarkersController : MonoBehaviour
 {
+    float Canvasx;
+    float Canvasy;
     Camera cam;
     Vector3 OnCameraPosition;
     Image currentMarker;
@@ -23,6 +25,8 @@ public class UiMarkersController : MonoBehaviour
             {
                 Enemy = enemy.Target;
                 cam = enemy.cam;
+                Canvasx = enemy.classCanvasx;
+                Canvasy = enemy.classCanvasy;
             }
         }
     }

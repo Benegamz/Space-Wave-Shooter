@@ -11,6 +11,8 @@ public class UITarget
         public Image uimarker;
         public Camera cam;
         public int classIdentifier;
+        public float classCanvasx;
+        public float classCanvasy;
     } 
 public class UIArrows : MonoBehaviour
 {
@@ -24,9 +26,15 @@ public class UIArrows : MonoBehaviour
     Image currentMarker;
     RectTransform currentRectTransform;
     int counter;
+    float Canvasx;
+    float Canvasy;
 
     void Start()
     {
+        Canvasx = Parent.GetComponent<RectTransform>().rect.width;
+        Canvasy = Parent.GetComponent<RectTransform>().rect.height;
+
+
         GameObject[] Enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in Enemies)
         {
@@ -49,11 +57,13 @@ public class UIArrows : MonoBehaviour
                 currentUITarget.uimarker = currentMarker;
                 currentUITarget.Target = enemy;
                 currentUITarget.cam = cam;
+                currentUITarget.classCanvasx = Canvasx;
+                currentUITarget.classCanvasy = Canvasy;
                 currentUITarget.classIdentifier = counter;
                 uIMarkers.Add(currentUITarget);
                 currentRectTransform = currentMarker.gameObject.GetComponent<RectTransform>();
-                currentRectTransform.SetInsetAndSizeFromParentEdge (RectTransform.Edge.Left, OnCanvasPosition.x * 1425 - 25, 50);
-                currentRectTransform.SetInsetAndSizeFromParentEdge (RectTransform.Edge.Bottom, OnCanvasPosition.y * 636 - 25, 50);
+                currentRectTransform.SetInsetAndSizeFromParentEdge (RectTransform.Edge.Left, OnCanvasPosition.x * Canvasx - 25, 50);
+                currentRectTransform.SetInsetAndSizeFromParentEdge (RectTransform.Edge.Bottom, OnCanvasPosition.y * Canvasy - 25, 50);
                 currentRectTransform.localEulerAngles = new Vector3 (0,0,0);
 
             }
