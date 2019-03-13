@@ -3,6 +3,7 @@ guid: 2c767c85bfd04194991c4137cba5e681
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
+<<<<<<< HEAD:Space-Wave-Shooter/Assets/Prefabs/SpaceFighterv1.obj.meta
     100000: default
     100002: //RootNode
     400000: default
@@ -12,6 +13,14 @@ ModelImporter:
     3300000: default
     4300000: default
     9500000: //RootNode
+=======
+    100000: //RootNode
+    400000: //RootNode
+    2100000: No Name
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cube
+>>>>>>> parent of d80a1e9... Update SpaceFighterv3.fbx.meta:Space-Wave-Shooter/Assets/Prefabs/SpaceFighterv3.fbx.meta
   externalObjects: {}
   materials:
     importMaterials: 1
