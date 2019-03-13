@@ -680,13 +680,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb82a8411a2d28242a1cd9d4fac5396e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 445051983}
+  cam: {fileID: 455323285}
   Parent: {fileID: 1974327061}
   uIMarker: {fileID: 7208728449988911127, guid: d9e32ebc8a4b21d4ab5787e9919cddd9,
     type: 3}
 --- !u!20 &445051983 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 7472254722615267890, guid: 27f05e3f29106b84c921392043b33536,
+    type: 3}
+  m_PrefabInstance: {fileID: 7472254722237343357}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &455323285 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 7472254722513711725, guid: 27f05e3f29106b84c921392043b33536,
     type: 3}
   m_PrefabInstance: {fileID: 7472254722237343357}
   m_PrefabAsset: {fileID: 0}
@@ -1750,7 +1756,7 @@ PrefabInstance:
     - target: {fileID: 7472254722615267890, guid: 27f05e3f29106b84c921392043b33536,
         type: 3}
       propertyPath: field of view
-      value: 45
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7472254723835346258, guid: 27f05e3f29106b84c921392043b33536,
         type: 3}
@@ -1835,7 +1841,7 @@ PrefabInstance:
     - target: {fileID: 7472254722513711725, guid: 27f05e3f29106b84c921392043b33536,
         type: 3}
       propertyPath: field of view
-      value: 45
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27f05e3f29106b84c921392043b33536, type: 3}
