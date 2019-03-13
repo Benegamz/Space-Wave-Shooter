@@ -1758,6 +1758,16 @@ PrefabInstance:
       propertyPath: field of view
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 7472254722513711725, guid: 27f05e3f29106b84c921392043b33536,
+        type: 3}
+      propertyPath: near clip plane
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7472254722513711725, guid: 27f05e3f29106b84c921392043b33536,
+        type: 3}
+      propertyPath: field of view
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 7472254723835346258, guid: 27f05e3f29106b84c921392043b33536,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1833,16 +1843,6 @@ PrefabInstance:
       propertyPath: missileWarningTextMesh
       value: 
       objectReference: {fileID: 665826473}
-    - target: {fileID: 7472254722513711725, guid: 27f05e3f29106b84c921392043b33536,
-        type: 3}
-      propertyPath: near clip plane
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7472254722513711725, guid: 27f05e3f29106b84c921392043b33536,
-        type: 3}
-      propertyPath: field of view
-      value: 60
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27f05e3f29106b84c921392043b33536, type: 3}
 --- !u!1001 &9026904918166222833
