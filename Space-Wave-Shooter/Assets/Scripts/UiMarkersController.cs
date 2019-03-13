@@ -41,7 +41,7 @@ public class UiMarkersController : MonoBehaviour
             if (OnCameraPosition.x >= 0 && OnCameraPosition.x <= 1 && OnCameraPosition.y >= 0 && OnCameraPosition.y <= 1)
             {
                 currentRectTransform = currentMarker.gameObject.GetComponent<RectTransform>();
-                currentRectTransform.SetInsetAndSizeFromParentEdge (RectTransform.Edge.Left, OnCanvasPosition.x * 1326 - 25, 50);
+                currentRectTransform.SetInsetAndSizeFromParentEdge (RectTransform.Edge.Left, OnCanvasPosition.x * 1425 - 25, 50);
                 currentRectTransform.SetInsetAndSizeFromParentEdge (RectTransform.Edge.Bottom, OnCanvasPosition.y * 636 - 25, 50);
                 currentRectTransform.localEulerAngles = new Vector3 (0,0,0);
 
