@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class UITarget
+public class UITarget : MonoBehaviour
     {
         public GameObject Target;
         public Image uimarker;
