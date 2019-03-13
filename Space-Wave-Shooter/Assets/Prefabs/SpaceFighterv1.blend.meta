@@ -3,16 +3,7 @@ guid: e58da510316c71b408be9de6a5ca611e
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-<<<<<<< HEAD:Space-Wave-Shooter/Assets/Prefabs/SpaceFighterv1.blend.meta
     2186277476908879412: ImportLogs
-=======
-    100000: //RootNode
-    400000: //RootNode
-    2100000: No Name
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Cube
->>>>>>> parent of d80a1e9... Update SpaceFighterv3.fbx.meta:Space-Wave-Shooter/Assets/Prefabs/SpaceFighterv3.fbx.meta
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -50,8 +41,8 @@ ModelImporter:
     useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 0
-    importLights: 0
+    importCameras: 1
+    importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -75,7 +66,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
