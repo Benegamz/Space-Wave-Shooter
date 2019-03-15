@@ -16,7 +16,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.Find("Player");
+        player = GameObject.Find("SpaceFighterv3");
         rb = GetComponent<Rigidbody>();
     }
 

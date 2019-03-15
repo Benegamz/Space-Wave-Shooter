@@ -18,6 +18,7 @@ public class FlakTurretBehavior : MonoBehaviour
     void Start()
     {
         InvokeRepeating("Cooldown",0,0.1f);
+        Player = GameObject.Find("SpaceFighterv3");
     }
 
     // Update is called once per frame

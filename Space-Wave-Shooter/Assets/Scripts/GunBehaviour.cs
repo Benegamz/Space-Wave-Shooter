@@ -13,6 +13,8 @@ public class GunBehaviour : MonoBehaviour
     public int missileAmount = 5;
     public int missileMax = 5;
     public bool ammoRegeneration = true;
+    public GameObject[] BulletFirePoints;
+    public GameObject[] MissileFirePoints;
     void Start()
     {
      InvokeRepeating("Cooldown", 0, 0.1f);   
@@ -26,8 +28,12 @@ public class GunBehaviour : MonoBehaviour
         {
             if (Input.GetKey("mouse 0"))
             {
-                Instantiate(Bullet, transform.position + (transform.forward * 20), transform.rotation);
+                foreach (GameObject firePoint in BulletFirePoints)
+                {
+                Instantiate(Bullet, firePoint.transform.position, firePoint.transform.rotation);
+                }
                 cooldownTimer = fireCooldown;
+                
             }
         }
         if (missileCooldownTimer <= 0)
@@ -36,8 +42,11 @@ public class GunBehaviour : MonoBehaviour
             {
                 if (missileAmount > 0)
                 {
-                    Instantiate(Missile,transform.position + (transform.forward * 20), transform.rotation);
+                    foreach (GameObject firePoint in MissileFirePoints)
+                    {
+                    Instantiate(Missile,firePoint.transform.position, firePoint.transform.rotation);
                     missileAmount--;
+                    }
                     missileCooldownTimer = missileFireCooldown;                }
             }
         }

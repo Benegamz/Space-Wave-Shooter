@@ -494,7 +494,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 524275126}
+      objectReference: {fileID: 1211980427}
     - target: {fileID: 9026904917229448018, guid: abe51846aa95263478d930890ec0e78f,
         type: 3}
       propertyPath: radius
@@ -693,12 +693,6 @@ Camera:
 --- !u!20 &455323285 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 7472254722513711725, guid: 27f05e3f29106b84c921392043b33536,
-    type: 3}
-  m_PrefabInstance: {fileID: 7472254722237343357}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &524275126 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7472254722553867211, guid: 27f05e3f29106b84c921392043b33536,
     type: 3}
   m_PrefabInstance: {fileID: 7472254722237343357}
   m_PrefabAsset: {fileID: 0}
@@ -1134,7 +1128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457a0db54c75df9488fc81fe9798cde9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1211980427}
   movementSpeed: 50
   rotaionalDamp: 0.25
   rayCastOffset: 2.5
@@ -1168,6 +1162,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1211980427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7472254723835346259, guid: 27f05e3f29106b84c921392043b33536,
+    type: 3}
+  m_PrefabInstance: {fileID: 7472254722237343357}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1219211189
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,6 +1351,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 1099833253329728470, guid: 107d004105e49634d8ab5e189126889c,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1211980427}
+    - target: {fileID: 7480302358864824744, guid: 107d004105e49634d8ab5e189126889c,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1211980427}
+    - target: {fileID: 8322697911722938701, guid: 107d004105e49634d8ab5e189126889c,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1211980427}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 107d004105e49634d8ab5e189126889c, type: 3}
 --- !u!1 &1530942022
@@ -1422,6 +1437,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!54 &1591028532 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 6340965161539986025, guid: 27f05e3f29106b84c921392043b33536,
+    type: 3}
+  m_PrefabInstance: {fileID: 7472254722237343357}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1806902153
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1553,7 +1574,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 524275126}
+      objectReference: {fileID: 1211980427}
     - target: {fileID: 9026904917229448018, guid: abe51846aa95263478d930890ec0e78f,
         type: 3}
       propertyPath: radius
@@ -1733,7 +1754,7 @@ PrefabInstance:
     - target: {fileID: 2117966529, guid: 4c014f16dc23b6a4ca1c51187736465b, type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 524275126}
+      objectReference: {fileID: 1211980427}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c014f16dc23b6a4ca1c51187736465b, type: 3}
 --- !u!1001 &7472254722237343357
@@ -1767,6 +1788,11 @@ PrefabInstance:
         type: 3}
       propertyPath: field of view
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7555553189888395851, guid: 27f05e3f29106b84c921392043b33536,
+        type: 3}
+      propertyPath: m_TagString
+      value: Friendly
       objectReference: {fileID: 0}
     - target: {fileID: 7472254723835346258, guid: 27f05e3f29106b84c921392043b33536,
         type: 3}
@@ -1843,6 +1869,41 @@ PrefabInstance:
       propertyPath: missileWarningTextMesh
       value: 
       objectReference: {fileID: 665826473}
+    - target: {fileID: 7555553189890397323, guid: 27f05e3f29106b84c921392043b33536,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 47619a3675aec1a44b38f53b9e50e0e1, type: 2}
+    - target: {fileID: 1904337158469905673, guid: 27f05e3f29106b84c921392043b33536,
+        type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1591028532}
+    - target: {fileID: 6508718673168167546, guid: 27f05e3f29106b84c921392043b33536,
+        type: 3}
+      propertyPath: speedTextMesh
+      value: 
+      objectReference: {fileID: 99543959}
+    - target: {fileID: 6508718673168167546, guid: 27f05e3f29106b84c921392043b33536,
+        type: 3}
+      propertyPath: hpTextMesh
+      value: 
+      objectReference: {fileID: 903502989}
+    - target: {fileID: 6508718673168167546, guid: 27f05e3f29106b84c921392043b33536,
+        type: 3}
+      propertyPath: missileTextMesh
+      value: 
+      objectReference: {fileID: 372151725}
+    - target: {fileID: 6508718673168167546, guid: 27f05e3f29106b84c921392043b33536,
+        type: 3}
+      propertyPath: missileWarningTextMesh
+      value: 
+      objectReference: {fileID: 665826473}
+    - target: {fileID: 7555553189886305515, guid: 27f05e3f29106b84c921392043b33536,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27f05e3f29106b84c921392043b33536, type: 3}
 --- !u!1001 &9026904918166222833
@@ -1976,7 +2037,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 524275126}
+      objectReference: {fileID: 1211980427}
     - target: {fileID: 9026904917229448018, guid: abe51846aa95263478d930890ec0e78f,
         type: 3}
       propertyPath: radius

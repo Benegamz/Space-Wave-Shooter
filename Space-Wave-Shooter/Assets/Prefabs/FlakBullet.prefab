@@ -64,7 +64,7 @@ MonoBehaviour:
   target: {fileID: 0}
   explosionRange: 100
   maxExplosionDamage: 5
-  bulletSpeed: 100
+  bulletSpeed: 500
 --- !u!1 &5166650645141997849
 GameObject:
   m_ObjectHideFlags: 0

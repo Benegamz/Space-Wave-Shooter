@@ -10,11 +10,10 @@ public class PlayerMovement : MonoBehaviour
     public int maxSpeed = 10000;
     public float strafingSpeed = 1;
     public bool alternateKeymapping = false;
-    Rigidbody rb;
+    public Rigidbody rb;
     void Start()
     {
         InvokeRepeating ("SpeedManagement",0,1f/60f);
-        rb = GetComponent<Rigidbody>();
     }
 
 

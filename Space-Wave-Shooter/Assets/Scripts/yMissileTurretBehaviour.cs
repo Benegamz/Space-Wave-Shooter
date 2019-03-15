@@ -24,7 +24,7 @@ public class yMissileTurretBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        Player = GameObject.Find("Player");
+        Player = GameObject.Find("SpaceFighterv3");
         targeter.transform.LookAt(Player.transform);
         Vector3 targeterEulerRotation = targeter.transform.rotation.eulerAngles;
         Vector3 currentEulerRotation = transform.rotation.eulerAngles;
