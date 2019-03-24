@@ -10,6 +10,8 @@ public class UiMarkersController : MonoBehaviour
     Camera cam;
     Vector3 OnCameraPosition;
     Image currentMarker;
+    Sprite markerImage;
+    Sprite emptyUISprite;
     GameObject Enemy;
     RectTransform currentRectTransform;
     public int Identifier;
@@ -19,6 +21,7 @@ public class UiMarkersController : MonoBehaviour
     {
         currentRectTransform = GetComponent<RectTransform>();
         currentMarker = gameObject.GetComponent<Image>();
+        markerImage = currentMarker.sprite;
         foreach (UITarget enemy in DataHandling.forIdentifing)
         {
             if (enemy.classIdentifier == Identifier)
@@ -27,6 +30,7 @@ public class UiMarkersController : MonoBehaviour
                 cam = enemy.cam;
                 Canvasx = enemy.classCanvasx;
                 Canvasy = enemy.classCanvasy;
+                emptyUISprite = enemy.empty;
             }
         }
     }
@@ -44,11 +48,18 @@ public class UiMarkersController : MonoBehaviour
             Vector3 OnCanvasPosition = new Vector3(OnCameraPosition.x, OnCameraPosition.y, 0);
             if (OnCameraPosition.z >= 0 && OnCameraPosition.x >= 0 && OnCameraPosition.x <= 1 && OnCameraPosition.y >= 0 && OnCameraPosition.y <= 1)
             {
-                currentRectTransform = currentMarker.gameObject.GetComponent<RectTransform>();
+                if (currentMarker.sprite == emptyUISprite)
+                {
+                    currentMarker.sprite = markerImage;
+                }
                 currentRectTransform.SetInsetAndSizeFromParentEdge (RectTransform.Edge.Left, OnCanvasPosition.x * Canvasx - 25, 50);
                 currentRectTransform.SetInsetAndSizeFromParentEdge (RectTransform.Edge.Bottom, OnCanvasPosition.y * Canvasy - 25, 50);
                 currentRectTransform.localEulerAngles = new Vector3 (0,0,0);
 
+            }
+            else
+            {
+                currentMarker.sprite = emptyUISprite;
             }
     }
 }

@@ -13,6 +13,7 @@ public class UITarget
         public int classIdentifier;
         public float classCanvasx;
         public float classCanvasy;
+        public Sprite empty;
     } 
 public class UIArrows : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class UIArrows : MonoBehaviour
     public Canvas Parent;
     Vector3 OnCameraPosition;
     public Image uIMarker;
+    public Sprite emptySprite;
     Image currentMarker;
     RectTransform currentRectTransform;
     int counter;
@@ -55,6 +57,7 @@ public class UIArrows : MonoBehaviour
                 currentMarker.GetComponent<UiMarkersController>().Identifier = counter;
                 UITarget currentUITarget = new UITarget();
                 currentUITarget.uimarker = currentMarker;
+                currentUITarget.empty = emptySprite;
                 currentUITarget.Target = enemy;
                 currentUITarget.cam = cam;
                 currentUITarget.classCanvasx = Canvasx;
