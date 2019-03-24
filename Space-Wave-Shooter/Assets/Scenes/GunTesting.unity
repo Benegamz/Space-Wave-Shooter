@@ -684,6 +684,7 @@ MonoBehaviour:
   Parent: {fileID: 1974327061}
   uIMarker: {fileID: 7208728449988911127, guid: d9e32ebc8a4b21d4ab5787e9919cddd9,
     type: 3}
+  emptySprite: {fileID: 21300000, guid: 9562e49757fb7034da0f26c54df6720c, type: 3}
 --- !u!20 &445051983 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 7472254722615267890, guid: 27f05e3f29106b84c921392043b33536,
@@ -950,6 +951,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 665826471}
   m_CullTransparentMesh: 0
+--- !u!1 &857083691 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7555553189888395851, guid: 27f05e3f29106b84c921392043b33536,
+    type: 3}
+  m_PrefabInstance: {fileID: 7472254722237343357}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &903502987
 GameObject:
   m_ObjectHideFlags: 0
@@ -1128,7 +1135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457a0db54c75df9488fc81fe9798cde9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1211980427}
+  player: {fileID: 857083691}
   movementSpeed: 50
   rotaionalDamp: 0.25
   rayCastOffset: 2.5
@@ -1772,7 +1779,7 @@ PrefabInstance:
     - target: {fileID: 7472254723835346259, guid: 27f05e3f29106b84c921392043b33536,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Friendly
       objectReference: {fileID: 0}
     - target: {fileID: 7472254722615267890, guid: 27f05e3f29106b84c921392043b33536,
         type: 3}
