@@ -42,7 +42,7 @@ public class UiMarkersController : MonoBehaviour
         }
         OnCameraPosition = cam.WorldToViewportPoint(Enemy.transform.position);
             Vector3 OnCanvasPosition = new Vector3(OnCameraPosition.x, OnCameraPosition.y, 0);
-            if (OnCameraPosition.x >= 0 && OnCameraPosition.x <= 1 && OnCameraPosition.y >= 0 && OnCameraPosition.y <= 1)
+            if (OnCameraPosition.z >= 0 && OnCameraPosition.x >= 0 && OnCameraPosition.x <= 1 && OnCameraPosition.y >= 0 && OnCameraPosition.y <= 1)
             {
                 currentRectTransform = currentMarker.gameObject.GetComponent<RectTransform>();
                 currentRectTransform.SetInsetAndSizeFromParentEdge (RectTransform.Edge.Left, OnCanvasPosition.x * Canvasx - 25, 50);
