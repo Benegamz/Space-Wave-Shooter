@@ -39,4 +39,8 @@ public class FlakBulletBehaviour : MonoBehaviour
         playerDamage.ExplosionDamage(currentTargetDistance, explosionRange, maxExplosionDamage);
         Destroy(gameObject);
     }
+    void OnCollisionEnter()
+    {
+        Destroy(gameObject);
+    }
 }

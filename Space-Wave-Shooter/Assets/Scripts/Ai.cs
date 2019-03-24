@@ -16,7 +16,6 @@ public class Ai : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
