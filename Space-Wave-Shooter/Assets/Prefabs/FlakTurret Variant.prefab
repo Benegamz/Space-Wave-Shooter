@@ -19,7 +19,7 @@ MonoBehaviour:
   - {fileID: 3486916077806498712}
   - {fileID: 3486916078083776262}
   strength: 1
-  FireCooldown: 1.5
+  FireCooldown: 3
 --- !u!1001 &5558006542243063846
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30,7 +30,7 @@ PrefabInstance:
     - target: {fileID: 9026904918540203505, guid: abe51846aa95263478d930890ec0e78f,
         type: 3}
       propertyPath: m_Name
-      value: FlakTurret
+      value: FlakTurret Variant
       objectReference: {fileID: 0}
     - target: {fileID: 9026904918540203505, guid: abe51846aa95263478d930890ec0e78f,
         type: 3}

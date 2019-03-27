@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public int CurrentSpeed = 0;
     public int maxSpeed = 10000;
     public float strafingSpeed = 1;
+    public float maxTurningSpeed = 10;
     public bool alternateKeymapping = false;
     public Rigidbody rb;
     void Start()
@@ -28,22 +29,50 @@ public class PlayerMovement : MonoBehaviour
                 //mouse left
                 if (Input.GetAxis("Mouse X")<0)
                 {
-                    transform.Rotate(0,-0.5f*turnSpeed*-Input.GetAxis("Mouse X"),0,Space.Self);
+                    if(Input.GetAxis("Mouse X")< -maxTurningSpeed)
+                    {
+                        transform.Rotate(0,-0.5f*turnSpeed*maxTurningSpeed,0,Space.Self);
+                    }
+                    else
+                    {
+                        transform.Rotate(0,-0.5f*turnSpeed*-Input.GetAxis("Mouse X"),0,Space.Self);
+                    }
                 }
                 //mouse right
                 if (Input.GetAxis("Mouse X")>0)
                 {
-                    transform.Rotate(0,0.5f*turnSpeed*Input.GetAxis("Mouse X"),0,Space.Self);
+                    if(Input.GetAxis("Mouse X")> maxTurningSpeed)
+                    {
+                        transform.Rotate(0,0.5f*turnSpeed*maxTurningSpeed,0,Space.Self);
+                    }
+                    else
+                    {
+                        transform.Rotate(0,0.5f*turnSpeed*Input.GetAxis("Mouse X"),0,Space.Self);
+                    }
                 }
                 //mouse down
                 if (Input.GetAxis("Mouse Y")<0)
                 {
-                    transform.Rotate(-2*turnSpeed*-Input.GetAxis("Mouse Y"),0,0,Space.Self);
+                    if(Input.GetAxis("Mouse Y")< -maxTurningSpeed)
+                    {
+                        transform.Rotate(-2*turnSpeed*maxTurningSpeed,0,0,Space.Self);
+                    }
+                    else
+                    {
+                        transform.Rotate(-2*turnSpeed*-Input.GetAxis("Mouse Y"),0,0,Space.Self);
+                    }
                 }
                 //mouse up
                 if (Input.GetAxis("Mouse Y")>0)
                 {
-                    transform.Rotate(2*turnSpeed*Input.GetAxis("Mouse Y"),0,0,Space.Self);
+                    if(Input.GetAxis("Mouse Y")> maxTurningSpeed)
+                    {
+                        transform.Rotate(2*turnSpeed*maxTurningSpeed,0,0,Space.Self);
+                    }
+                    else
+                    {
+                        transform.Rotate(2*turnSpeed*Input.GetAxis("Mouse Y"),0,0,Space.Self);
+                    }
                 }
                 if (Input.GetKey("q"))
                 {

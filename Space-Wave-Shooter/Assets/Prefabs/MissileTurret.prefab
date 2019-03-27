@@ -569,6 +569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parts:
   - {fileID: 984460064815591562}
+  - {fileID: 7697858592252017791}
   currentHp: 50
 --- !u!54 &122254078426899830
 Rigidbody:

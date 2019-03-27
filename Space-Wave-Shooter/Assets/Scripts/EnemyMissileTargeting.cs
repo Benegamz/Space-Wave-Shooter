@@ -58,7 +58,7 @@ public class EnemyMissileTargeting : MonoBehaviour
         float str = Mathf.Min (rotationSpeed * Time.deltaTime, 1);
         transform.rotation = Quaternion.Lerp (transform.rotation, targetRotation, str);
 
-        if (currentTarget = GameObject.Find("Player"))
+        if (currentTarget = GameObject.Find("SpaceFighterv3"))
         {
             followingPlayer = true;
             DataHandling.ChasingMissiles.Add(followingPlayer);
