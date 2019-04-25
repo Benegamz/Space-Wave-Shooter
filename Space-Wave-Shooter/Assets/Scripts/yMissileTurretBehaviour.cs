@@ -48,7 +48,6 @@ public class yMissileTurretBehaviour : MonoBehaviour
             if (cooldownTimer <= 0) {
                 foreach(GameObject point in FirePoints) {
                     Instantiate(Bullet, point.transform.position + (point.transform.forward * 20), point.transform.rotation);
-                    Debug.Log("Fired");
                     cooldownTimer = FireCooldown;
                     missileAmount--;
                 }

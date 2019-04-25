@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class UiMarkersController : MonoBehaviour
 {
+    UITarget forRelist;
     float Canvasx;
     float Canvasy;
     Camera cam;
     Vector3 OnCameraPosition;
+    public Vector3 OnCanvasPosition;
     Image currentMarker;
     Sprite markerImage;
     Sprite emptyUISprite;
@@ -26,6 +28,7 @@ public class UiMarkersController : MonoBehaviour
         {
             if (enemy.classIdentifier == Identifier)
             {
+                forRelist = enemy; 
                 Enemy = enemy.Target;
                 cam = enemy.cam;
                 Canvasx = enemy.classCanvasx;
@@ -42,6 +45,14 @@ public class UiMarkersController : MonoBehaviour
     {
         if (Enemy == null)
         {
+            foreach (UITarget enemy in DataHandling.forIdentifing)
+            {
+                if(enemy.classIdentifier == Identifier)
+                {
+                    enemy.isActive = false;
+                }
+            }
+            DataHandling.UIMarkersRelist();
             Destroy(gameObject);
         }
         OnCameraPosition = cam.WorldToViewportPoint(Enemy.transform.position);
@@ -61,5 +72,17 @@ public class UiMarkersController : MonoBehaviour
             {
                 currentMarker.sprite = emptyUISprite;
             }
+    }
+    public float GetXPos ()
+    {
+        return cam.WorldToViewportPoint(Enemy.transform.position).x;
+    }
+    public float GetYPos ()
+    {   
+        return cam.WorldToViewportPoint(Enemy.transform.position).y;
+    }
+    public void Relist ()
+    {
+        DataHandling.forIdentifing.Add(forRelist);
     }
 }

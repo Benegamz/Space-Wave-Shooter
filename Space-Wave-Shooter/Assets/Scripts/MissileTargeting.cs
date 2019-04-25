@@ -5,47 +5,46 @@ using UnityEngine;
 
 public class MissileTargeting : MonoBehaviour
 {
+    TargetingDistance targ;
+    UIArrows uIArrows;
     Rigidbody rb;
     public GameObject targeter;
     public int missileVelocity;
     public int rotationSpeed;
     GameObject currentTarget;
-    GameObject[] gos;
     void Start()
     {
+        uIArrows = GameObject.Find("UI Camera").GetComponent<UIArrows>();
         rb = GetComponent<Rigidbody>();
         InvokeRepeating ("MissileTargetFinding", 0, 0.1f);
-        gos = GameObject.FindGameObjectsWithTag("Enemy");
         Destroy (gameObject,10);
-
-
-        currentTarget = null;
+        targ = uIArrows.GetClosestToCenter();
+        currentTarget = targ.ForTargeting;
+        Debug.Log(currentTarget);
         Vector3 position = transform.position;
-        float distance = Mathf.Infinity;
-        foreach (GameObject go in gos)
+        targeter.transform.LookAt(currentTarget.transform);
+        Vector3 missileEulerRotation = transform.rotation.eulerAngles;
+        Vector3 targeterEulerRotation = targeter.transform.rotation.eulerAngles;
+        Vector3 rotationDifference = new Vector3 (Mathf.Abs(targeterEulerRotation.x - missileEulerRotation.x),Mathf.Abs(targeterEulerRotation.y - missileEulerRotation.y),Mathf.Abs(targeterEulerRotation.z - missileEulerRotation.z)); 
+        if (rotationDifference.x < 55 | rotationDifference.x > 305)
         {
-            targeter.transform.LookAt(go.transform);
-            Vector3 missileEulerRotation = transform.rotation.eulerAngles;
-            Vector3 targeterEulerRotation = targeter.transform.rotation.eulerAngles;
-            Vector3 rotationDifference = new Vector3 (Mathf.Abs(targeterEulerRotation.x - missileEulerRotation.x),Mathf.Abs(targeterEulerRotation.y - missileEulerRotation.y),Mathf.Abs(targeterEulerRotation.z - missileEulerRotation.z)); 
-            if (rotationDifference.x < 55 | rotationDifference.x > 305)
+            if (rotationDifference.y < 55 | rotationDifference.y > 305)
             {
-                if (rotationDifference.y < 55 | rotationDifference.y > 305)
-                {
-                    Vector3 diff = go.transform.position - position;
-                    float curDistance = diff.sqrMagnitude;
-                    if (curDistance < distance)
-                    {
-                        currentTarget = go;
-                        distance = curDistance;
-                    }
-                }
             }
+            else
+            {
+                currentTarget = null;
+            }
+        }
+        else
+        {
+            currentTarget = null;
         }
     }
 
     void Update()
     {
+        Debug.Log(currentTarget);
         rb.velocity = transform.forward * missileVelocity;
         float predictedImpactTime = (Vector3.Distance(currentTarget.transform.position, transform.position) / (rb.velocity.x + rb.velocity.y + rb.velocity.z));
         Vector3 currentTargetVelocity = currentTarget.GetComponent<Rigidbody>().velocity;
