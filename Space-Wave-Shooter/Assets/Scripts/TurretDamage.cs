@@ -6,6 +6,7 @@ public class TurretDamage : MonoBehaviour
 {
 
     public int currentHp = 50;
+    public GameObject explosion;
     void OnCollisionEnter (Collision col)
     {
         if (col.gameObject.tag == "Bullet")
@@ -14,6 +15,7 @@ public class TurretDamage : MonoBehaviour
             Debug.Log("TurretHp" + currentHp);
             if (currentHp <= 0)
             {
+                Instantiate (explosion, transform.position, Quaternion.identity);
                 Destroy (gameObject);
             }
         }
@@ -23,6 +25,7 @@ public class TurretDamage : MonoBehaviour
             Debug.Log("TurretHp" + currentHp);
             if (currentHp <= 0)
             {
+                Instantiate (explosion, transform.position, Quaternion.identity);
                 Destroy (gameObject);
             }
         }

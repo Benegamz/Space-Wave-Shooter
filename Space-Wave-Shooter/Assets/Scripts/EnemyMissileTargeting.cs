@@ -9,11 +9,13 @@ public class EnemyMissileTargeting : MonoBehaviour
     public GameObject targeter;
     public int missileVelocity;
     public int rotationSpeed;
+    public GameObject explosion;
     GameObject currentTarget;
     GameObject[] gos;
     bool followingPlayer = false;
     void Start()
     {
+        Invoke ("Explode", 10);
         rb = GetComponent<Rigidbody>();
         InvokeRepeating ("MissileTargetFinding", 0, 0.1f);
         gos = GameObject.FindGameObjectsWithTag("Friendly");
@@ -96,7 +98,13 @@ public class EnemyMissileTargeting : MonoBehaviour
     {
         if (col.gameObject.tag != "Bullet")
         {
-        Destroy (gameObject);
+            Instantiate (explosion, transform.position, Quaternion.identity);
+            Destroy (gameObject);
         }
+    }
+    void Explode ()
+    {
+        Instantiate (explosion, transform.position, Quaternion.identity);
+        Destroy (gameObject);
     }
 }

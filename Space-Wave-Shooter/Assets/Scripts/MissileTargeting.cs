@@ -9,15 +9,16 @@ public class MissileTargeting : MonoBehaviour
     UIArrows uIArrows;
     Rigidbody rb;
     public GameObject targeter;
+    public GameObject explosion;
     public int missileVelocity;
     public int rotationSpeed;
     GameObject currentTarget;
     void Start()
     {
+        Invoke("Explode", 10);
         uIArrows = GameObject.Find("UI Camera").GetComponent<UIArrows>();
         rb = GetComponent<Rigidbody>();
         InvokeRepeating ("MissileTargetFinding", 0, 0.1f);
-        Destroy (gameObject,10);
         targ = uIArrows.GetClosestToCenter();
         currentTarget = targ.ForTargeting;
         Vector3 position = transform.position;
@@ -83,7 +84,13 @@ public class MissileTargeting : MonoBehaviour
     {
         if (col.gameObject.tag != "Bullet")
         {
-        Destroy (gameObject);
+            Instantiate (explosion, transform.position, Quaternion.identity);
+            Destroy (gameObject);
         }
+    }
+    void Explode ()
+    {
+        Instantiate (explosion, transform.position, Quaternion.identity);
+        Destroy (gameObject);
     }
 }

@@ -7,6 +7,7 @@ public class TurretDamageSubVariant : MonoBehaviour
 
     public GameObject[] parts;
     public int currentHp = 50;
+    public GameObject explosion;
     void OnCollisionEnter (Collision col)
     {
         if (col.gameObject.tag == "Bullet")
@@ -17,7 +18,8 @@ public class TurretDamageSubVariant : MonoBehaviour
             {
                 foreach (GameObject part in parts)
                 {
-                Destroy (part);
+                    Instantiate (explosion, transform.position, Quaternion.identity);
+                    Destroy (part);
                 }
             }
         }
@@ -29,7 +31,8 @@ public class TurretDamageSubVariant : MonoBehaviour
             {
                 foreach (GameObject part in parts)
                 {
-                Destroy (part);
+                    Instantiate (explosion, transform.position, Quaternion.identity);
+                    Destroy (part);
                 }
             }
         }

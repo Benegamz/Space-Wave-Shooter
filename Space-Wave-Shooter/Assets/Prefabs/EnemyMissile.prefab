@@ -15,6 +15,8 @@ MonoBehaviour:
   targeter: {fileID: 37084752449722980}
   missileVelocity: 325
   rotationSpeed: 4
+  explosion: {fileID: 5720139244763615406, guid: 68365a941175fee49a01cfa3f1fee900,
+    type: 3}
 --- !u!1001 &2311709473087391866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -87,6 +89,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7210040180635001103, guid: 6f9ae3a91cb37f54a9115c51cdd0c39d,
+        type: 3}
+      propertyPath: targeter
+      value: 
+      objectReference: {fileID: 37084752449722980}
     - target: {fileID: 2864194369952644775, guid: 6f9ae3a91cb37f54a9115c51cdd0c39d,
         type: 3}
       propertyPath: m_TagString
@@ -102,11 +109,6 @@ PrefabInstance:
       propertyPath: m_Height
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 7210040180635001103, guid: 6f9ae3a91cb37f54a9115c51cdd0c39d,
-        type: 3}
-      propertyPath: targeter
-      value: 
-      objectReference: {fileID: 37084752449722980}
     m_RemovedComponents:
     - {fileID: 7210040180635001103, guid: 6f9ae3a91cb37f54a9115c51cdd0c39d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6f9ae3a91cb37f54a9115c51cdd0c39d, type: 3}

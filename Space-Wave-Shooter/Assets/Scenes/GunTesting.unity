@@ -762,7 +762,7 @@ PrefabInstance:
     - target: {fileID: 6584037039115851566, guid: ccbda4f49c561394ab25fc8abe4e19e4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6584037039115851566, guid: ccbda4f49c561394ab25fc8abe4e19e4,
         type: 3}
@@ -1157,6 +1157,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHp: 100
+  explosion: {fileID: 6316441603930275199, guid: 1d1c7d218e3a84f428042f32edc8b21f,
+    type: 3}
 --- !u!54 &1083316546
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1795,7 +1797,7 @@ RectTransform:
   - {fileID: 665826472}
   - {fileID: 1618256433}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

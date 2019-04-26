@@ -65,6 +65,8 @@ MonoBehaviour:
   explosionRange: 100
   maxExplosionDamage: 5
   bulletSpeed: 500
+  explosion: {fileID: 5308951224256401204, guid: 6d488653dba32da40b8951c2a867f9cd,
+    type: 3}
 --- !u!1 &5166650645141997849
 GameObject:
   m_ObjectHideFlags: 0

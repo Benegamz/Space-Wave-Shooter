@@ -11,6 +11,7 @@ public class FlakBulletBehaviour : MonoBehaviour
     float startTargetDistance;
     float currentTargetDistance;
     float explosionTimer;
+    public GameObject explosion;
     Rigidbody rigidbody;
     PlayerDamage playerDamage;
     
@@ -37,10 +38,12 @@ public class FlakBulletBehaviour : MonoBehaviour
         playerDamage = target.GetComponent<PlayerDamage>();
         currentTargetDistance = Vector3.Distance(target.transform.position, transform.position);
         playerDamage.ExplosionDamage(currentTargetDistance, explosionRange, maxExplosionDamage);
+        Instantiate(explosion, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
     void OnCollisionEnter()
     {
+        Instantiate(explosion, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }
