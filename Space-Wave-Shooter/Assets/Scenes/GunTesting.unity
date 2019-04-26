@@ -692,7 +692,9 @@ MonoBehaviour:
   Parent: {fileID: 1974327061}
   uIMarker: {fileID: 7208728449988911127, guid: d9e32ebc8a4b21d4ab5787e9919cddd9,
     type: 3}
+  normal: {fileID: 21300000, guid: 28cf7a56c9758f94f9f8eb3ac43f7347, type: 3}
   emptySprite: {fileID: 21300000, guid: 9562e49757fb7034da0f26c54df6720c, type: 3}
+  redSprite: {fileID: 21300000, guid: dfead94e1c1a9f14d971d6d585c66db7, type: 3}
 --- !u!20 &445051983 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 7472254722615267890, guid: 27f05e3f29106b84c921392043b33536,
@@ -720,22 +722,22 @@ PrefabInstance:
     - target: {fileID: 6584037039115851564, guid: ccbda4f49c561394ab25fc8abe4e19e4,
         type: 3}
       propertyPath: m_TagString
-      value: Enemy
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6584037039115851566, guid: ccbda4f49c561394ab25fc8abe4e19e4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.12
+      value: -160
       objectReference: {fileID: 0}
     - target: {fileID: 6584037039115851566, guid: ccbda4f49c561394ab25fc8abe4e19e4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -35
       objectReference: {fileID: 0}
     - target: {fileID: 6584037039115851566, guid: ccbda4f49c561394ab25fc8abe4e19e4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 785
       objectReference: {fileID: 0}
     - target: {fileID: 6584037039115851566, guid: ccbda4f49c561394ab25fc8abe4e19e4,
         type: 3}

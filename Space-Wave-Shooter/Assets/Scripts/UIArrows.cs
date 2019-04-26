@@ -9,6 +9,7 @@ public class TargetingDistance
     {
         public float distance;
         public GameObject ForTargeting;
+        public Image targetMarker;
     }
 
 
@@ -21,10 +22,13 @@ public class UITarget
         public int classIdentifier;
         public float classCanvasx;
         public float classCanvasy;
+        public Sprite standardSprite;
         public Sprite empty;
+        public Sprite red;
     } 
 public class UIArrows : MonoBehaviour
 {
+    Image previousMarker;
     List <TargetingDistance> Distances = new List <TargetingDistance>();
     List<GameObject> EnemiesList = new List<GameObject>();
     List<UITarget> uIMarkers = new List<UITarget>();
@@ -32,7 +36,9 @@ public class UIArrows : MonoBehaviour
     public Canvas Parent;
     Vector3 OnCameraPosition;
     public Image uIMarker;
+    public Sprite normal;
     public Sprite emptySprite;
+    public Sprite redSprite;
     Image currentMarker;
     RectTransform currentRectTransform;
     int counter;
@@ -65,8 +71,10 @@ public class UIArrows : MonoBehaviour
                 currentMarker.GetComponent<UiMarkersController>().Identifier = counter;
                 UITarget currentUITarget = new UITarget();
                 currentUITarget.isActive = true;
+                currentUITarget.standardSprite = normal;
                 currentUITarget.uimarker = currentMarker;
                 currentUITarget.empty = emptySprite;
+                currentUITarget.red = redSprite;
                 currentUITarget.Target = enemy;
                 currentUITarget.cam = cam;
                 currentUITarget.classCanvasx = Canvasx;
@@ -81,6 +89,21 @@ public class UIArrows : MonoBehaviour
             }
         }
         DataHandling.forIdentifing = uIMarkers;
+    }
+    void Update ()
+    {
+        Image closestMarker = GetClosestToCenter().targetMarker;
+        if(previousMarker == null)
+        {
+            closestMarker.GetComponent<UiMarkersController>().SwitchSprites();
+            previousMarker = closestMarker;
+        }
+        else if (closestMarker.GetComponent<UiMarkersController>().Identifier != previousMarker.GetComponent<UiMarkersController>().Identifier)
+        {
+            closestMarker.GetComponent<UiMarkersController>().SwitchSprites();
+            previousMarker.GetComponent<UiMarkersController>().SwitchSprites();
+            previousMarker = closestMarker;
+        }
     }
     int CompareByDistance(TargetingDistance x, TargetingDistance y)
     {
@@ -120,33 +143,26 @@ public class UIArrows : MonoBehaviour
     }
     public TargetingDistance GetClosestToCenter ()
     {
-        Debug.Log("Called closesttocenter");
         Distances.Clear();
-        Debug.Log("Targetamount found: " + DataHandling.forIdentifing.Count);
         foreach (UITarget uITarget in DataHandling.forIdentifing)
         {
-            Debug.Log("entered foreachloop");
             UiMarkersController controller = uITarget.uimarker.GetComponent<UiMarkersController>();
             float xPos = controller.GetXPos();
             float yPos = controller.GetYPos();
             TargetingDistance targetingDistance = new TargetingDistance();
             targetingDistance.distance = Pythagoras(xPos, yPos);
             targetingDistance.ForTargeting = uITarget.Target;
+            targetingDistance.targetMarker = uITarget.uimarker;
             Distances.Add (targetingDistance); 
         }
         Distances.Sort(CompareByDistance);
-        foreach (TargetingDistance targDistance in Distances)
-        {
-            Debug.Log(targDistance.distance + " " + targDistance.ForTargeting);
-        }
-        Debug.Log("Closest: " + Distances[0].distance + " " + Distances[0].ForTargeting);
         return Distances[0];
     }
 
     float Pythagoras (float a, float b)
     {
         a = System.Math.Abs(a - 0.5f);
-        b = System.Math.Abs(b - 0.5f);
+        b = System.Math.Abs(b - 0.4f);
         float c2 = Mathf.Pow(a, 2f) + Mathf.Pow(b, 2f);
         float c = Mathf.Pow(c2, 0.5f);
         return c;

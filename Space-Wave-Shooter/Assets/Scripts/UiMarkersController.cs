@@ -14,6 +14,8 @@ public class UiMarkersController : MonoBehaviour
     Image currentMarker;
     Sprite markerImage;
     Sprite emptyUISprite;
+    Sprite redUISprite;
+    Sprite currentUISprite;
     GameObject Enemy;
     RectTransform currentRectTransform;
     public int Identifier;
@@ -24,6 +26,7 @@ public class UiMarkersController : MonoBehaviour
         currentRectTransform = GetComponent<RectTransform>();
         currentMarker = gameObject.GetComponent<Image>();
         markerImage = currentMarker.sprite;
+        currentUISprite = markerImage;
         foreach (UITarget enemy in DataHandling.forIdentifing)
         {
             if (enemy.classIdentifier == Identifier)
@@ -34,6 +37,7 @@ public class UiMarkersController : MonoBehaviour
                 Canvasx = enemy.classCanvasx;
                 Canvasy = enemy.classCanvasy;
                 emptyUISprite = enemy.empty;
+                redUISprite = enemy.red;
             }
         }
     }
@@ -59,10 +63,7 @@ public class UiMarkersController : MonoBehaviour
             Vector3 OnCanvasPosition = new Vector3(OnCameraPosition.x, OnCameraPosition.y, 0);
             if (OnCameraPosition.z >= 0 && OnCameraPosition.x >= 0 && OnCameraPosition.x <= 1 && OnCameraPosition.y >= 0 && OnCameraPosition.y <= 1)
             {
-                if (currentMarker.sprite == emptyUISprite)
-                {
-                    currentMarker.sprite = markerImage;
-                }
+                currentMarker.sprite = currentUISprite;
                 currentRectTransform.SetInsetAndSizeFromParentEdge (RectTransform.Edge.Left, OnCanvasPosition.x * Canvasx - 25, 50);
                 currentRectTransform.SetInsetAndSizeFromParentEdge (RectTransform.Edge.Bottom, OnCanvasPosition.y * Canvasy - 25, 50);
                 currentRectTransform.localEulerAngles = new Vector3 (0,0,0);
@@ -84,5 +85,16 @@ public class UiMarkersController : MonoBehaviour
     public void Relist ()
     {
         DataHandling.forIdentifing.Add(forRelist);
+    }
+    public void SwitchSprites ()
+    {
+        if (currentUISprite == markerImage)
+        {
+            currentUISprite = redUISprite;
+        }
+        else
+        {
+            currentUISprite = markerImage;
+        }
     }
 }

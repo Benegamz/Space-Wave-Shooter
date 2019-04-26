@@ -22,7 +22,6 @@ public class PlayerDamage : MonoBehaviour
             if (col.gameObject.tag == "Bullet")
             {
                 currentHp = currentHp - 10;
-                Debug.Log ("HP:" + currentHp);
                 if (currentHp <= 0)
                 {
                     Destroy(gameObject);
@@ -32,7 +31,6 @@ public class PlayerDamage : MonoBehaviour
             if (col.gameObject.tag == "Missile")
             {
                 currentHp = currentHp - 50;
-                Debug.Log ("HP:" + currentHp);
                 if (currentHp <= 0)
                 {
                     Destroy(gameObject);
@@ -52,7 +50,6 @@ public class PlayerDamage : MonoBehaviour
        if (currentHp < maxHP)
        {
            currentHp = currentHp + regenerationAmount;
-           Debug.Log ("HP:" + currentHp);
        }
    }
    public void ExplosionDamage (float Distance, int ExplosionRange, int maxExplosionDamage)

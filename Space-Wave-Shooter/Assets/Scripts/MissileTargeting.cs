@@ -20,7 +20,6 @@ public class MissileTargeting : MonoBehaviour
         Destroy (gameObject,10);
         targ = uIArrows.GetClosestToCenter();
         currentTarget = targ.ForTargeting;
-        Debug.Log(currentTarget);
         Vector3 position = transform.position;
         targeter.transform.LookAt(currentTarget.transform);
         Vector3 missileEulerRotation = transform.rotation.eulerAngles;
@@ -44,7 +43,6 @@ public class MissileTargeting : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(currentTarget);
         rb.velocity = transform.forward * missileVelocity;
         float predictedImpactTime = (Vector3.Distance(currentTarget.transform.position, transform.position) / (rb.velocity.x + rb.velocity.y + rb.velocity.z));
         Vector3 currentTargetVelocity = currentTarget.GetComponent<Rigidbody>().velocity;
