@@ -10,6 +10,8 @@ public class PlayerDamage : MonoBehaviour
    public int regenerationAmount = 1;
    public float currentHp;
    public bool godMode = false;
+   public GameObject smokeEmitter;
+   public GameObject sparkEmitter;
    void Start()
    {
        currentHp = maxHP;
@@ -22,6 +24,7 @@ public class PlayerDamage : MonoBehaviour
             if (col.gameObject.tag == "Bullet")
             {
                 currentHp = currentHp - 10;
+                ChangeStatus();
                 if (currentHp <= 0)
                 {
                     Destroy(gameObject);
@@ -31,6 +34,7 @@ public class PlayerDamage : MonoBehaviour
             if (col.gameObject.tag == "Missile")
             {
                 currentHp = currentHp - 50;
+                ChangeStatus();
                 if (currentHp <= 0)
                 {
                     Destroy(gameObject);
@@ -50,6 +54,7 @@ public class PlayerDamage : MonoBehaviour
        if (currentHp < maxHP)
        {
            currentHp = currentHp + regenerationAmount;
+           ChangeStatus();
        }
    }
    public void ExplosionDamage (float Distance, int ExplosionRange, int maxExplosionDamage)
@@ -57,11 +62,33 @@ public class PlayerDamage : MonoBehaviour
        if (Distance <= ExplosionRange)
        {
        currentHp = currentHp - maxExplosionDamage;
+       ChangeStatus();
        if (currentHp <= 0)
                 {
                     Destroy(gameObject);
                     SceneManager.LoadScene("GameOver",LoadSceneMode.Additive);
                 }
+       }
+   }
+   void ChangeStatus ()
+   {
+       if (currentHp > 70)
+       {
+           Debug.Log("HP > 70");
+           sparkEmitter.SetActive(false);
+           smokeEmitter.SetActive(false);
+       }
+       if (currentHp <= 70)
+       {
+           Debug.Log("HP <= 70");
+           sparkEmitter.SetActive(true);
+           smokeEmitter.SetActive(false);
+       }
+       if (currentHp <= 40 )
+       {
+           Debug.Log("HP <= 40");
+           sparkEmitter.SetActive(true);
+           smokeEmitter.SetActive(true);
        }
    }
 }
