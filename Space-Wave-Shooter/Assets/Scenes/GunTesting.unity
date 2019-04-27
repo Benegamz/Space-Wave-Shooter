@@ -1198,7 +1198,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1143014649
 Transform:
   m_ObjectHideFlags: 0
@@ -6022,7 +6022,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1261894718
 Transform:
   m_ObjectHideFlags: 0
@@ -11895,6 +11895,16 @@ PrefabInstance:
       propertyPath: m_AngularDrag
       value: 999
       objectReference: {fileID: 0}
+    - target: {fileID: 6701604312405616550, guid: 27f05e3f29106b84c921392043b33536,
+        type: 3}
+      propertyPath: smokeEmitter
+      value: 
+      objectReference: {fileID: 1143014648}
+    - target: {fileID: 6701604312405616550, guid: 27f05e3f29106b84c921392043b33536,
+        type: 3}
+      propertyPath: sparkEmitter
+      value: 
+      objectReference: {fileID: 1261894717}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27f05e3f29106b84c921392043b33536, type: 3}
 --- !u!1001 &9026904918166222833
