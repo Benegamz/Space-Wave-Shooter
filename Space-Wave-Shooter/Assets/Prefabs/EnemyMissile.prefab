@@ -17,6 +17,7 @@ MonoBehaviour:
   rotationSpeed: 4
   explosion: {fileID: 5720139244763615406, guid: 68365a941175fee49a01cfa3f1fee900,
     type: 3}
+  maxTargetingRotationDifference: 130
 --- !u!1001 &2311709473087391866
 PrefabInstance:
   m_ObjectHideFlags: 0

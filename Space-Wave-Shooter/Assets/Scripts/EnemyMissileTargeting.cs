@@ -13,8 +13,13 @@ public class EnemyMissileTargeting : MonoBehaviour
     GameObject currentTarget;
     GameObject[] gos;
     bool followingPlayer = false;
+    public int maxTargetingRotationDifference = 90;
+    int positivemaxTargetingRotation;
+    int negativemaxTargetingRotation;
     void Start()
     {
+        positivemaxTargetingRotation = 180 + maxTargetingRotationDifference;
+        negativemaxTargetingRotation = 180 - maxTargetingRotationDifference;
         Invoke ("Explode", 10);
         rb = GetComponent<Rigidbody>();
         InvokeRepeating ("MissileTargetFinding", 0, 0.1f);
@@ -31,9 +36,9 @@ public class EnemyMissileTargeting : MonoBehaviour
             Vector3 missileEulerRotation = transform.rotation.eulerAngles;
             Vector3 targeterEulerRotation = targeter.transform.rotation.eulerAngles;
             Vector3 rotationDifference = new Vector3 (Mathf.Abs(targeterEulerRotation.x - missileEulerRotation.x),Mathf.Abs(targeterEulerRotation.y - missileEulerRotation.y),Mathf.Abs(targeterEulerRotation.z - missileEulerRotation.z)); 
-            if (rotationDifference.x < 55 | rotationDifference.x > 305)
+            if (rotationDifference.x < negativemaxTargetingRotation | rotationDifference.x > positivemaxTargetingRotation)
             {
-                if (rotationDifference.y < 55 | rotationDifference.y > 305)
+                if (rotationDifference.y < negativemaxTargetingRotation | rotationDifference.y > positivemaxTargetingRotation)
                 {
                     Vector3 diff = go.transform.position - position;
                     float curDistance = diff.sqrMagnitude;
@@ -77,9 +82,9 @@ public class EnemyMissileTargeting : MonoBehaviour
         Vector3 missileEulerRotation = transform.rotation.eulerAngles;
         Vector3 targeterEulerRotation = targeter.transform.rotation.eulerAngles;
         Vector3 rotationDifference = new Vector3 (Mathf.Abs(targeterEulerRotation.x - missileEulerRotation.x),Mathf.Abs(targeterEulerRotation.y - missileEulerRotation.y),Mathf.Abs(targeterEulerRotation.z - missileEulerRotation.z)); 
-        if (rotationDifference.x < 55 | rotationDifference.x > 305)
+        if (rotationDifference.x < negativemaxTargetingRotation | rotationDifference.x > positivemaxTargetingRotation)
         {
-            if (rotationDifference.y < 55 | rotationDifference.y > 305)
+            if (rotationDifference.y < negativemaxTargetingRotation | rotationDifference.y > positivemaxTargetingRotation)
             {
                 
             }

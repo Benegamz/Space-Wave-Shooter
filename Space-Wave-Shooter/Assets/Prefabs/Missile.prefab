@@ -148,6 +148,7 @@ MonoBehaviour:
     type: 3}
   missileVelocity: 400
   rotationSpeed: 4
+  maxTargetingRotationDifference: 130
 --- !u!54 &5227410656080971663
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -12,9 +12,14 @@ public class MissileTargeting : MonoBehaviour
     public GameObject explosion;
     public int missileVelocity;
     public int rotationSpeed;
+    public int maxTargetingRotationDifference = 90;
+    int positivemaxTargetingRotation;
+    int negativemaxTargetingRotation;
     GameObject currentTarget;
     void Start()
     {
+        positivemaxTargetingRotation = 180 + maxTargetingRotationDifference;
+        negativemaxTargetingRotation = 180 - maxTargetingRotationDifference;
         Invoke("Explode", 10);
         uIArrows = GameObject.Find("UI Camera").GetComponent<UIArrows>();
         rb = GetComponent<Rigidbody>();
@@ -26,9 +31,9 @@ public class MissileTargeting : MonoBehaviour
         Vector3 missileEulerRotation = transform.rotation.eulerAngles;
         Vector3 targeterEulerRotation = targeter.transform.rotation.eulerAngles;
         Vector3 rotationDifference = new Vector3 (Mathf.Abs(targeterEulerRotation.x - missileEulerRotation.x),Mathf.Abs(targeterEulerRotation.y - missileEulerRotation.y),Mathf.Abs(targeterEulerRotation.z - missileEulerRotation.z)); 
-        if (rotationDifference.x < 55 | rotationDifference.x > 305)
+        if (rotationDifference.x < negativemaxTargetingRotation | rotationDifference.x > positivemaxTargetingRotation)
         {
-            if (rotationDifference.y < 55 | rotationDifference.y > 305)
+            if (rotationDifference.y < negativemaxTargetingRotation | rotationDifference.y > positivemaxTargetingRotation)
             {
             }
             else
@@ -63,9 +68,9 @@ public class MissileTargeting : MonoBehaviour
         Vector3 missileEulerRotation = transform.rotation.eulerAngles;
         Vector3 targeterEulerRotation = targeter.transform.rotation.eulerAngles;
         Vector3 rotationDifference = new Vector3 (Mathf.Abs(targeterEulerRotation.x - missileEulerRotation.x),Mathf.Abs(targeterEulerRotation.y - missileEulerRotation.y),Mathf.Abs(targeterEulerRotation.z - missileEulerRotation.z)); 
-        if (rotationDifference.x < 55 | rotationDifference.x > 305)
+        if (rotationDifference.x < negativemaxTargetingRotation | rotationDifference.x > positivemaxTargetingRotation)
         {
-            if (rotationDifference.y < 55 | rotationDifference.y > 305)
+            if (rotationDifference.y < negativemaxTargetingRotation | rotationDifference.y > positivemaxTargetingRotation)
             {
                 
             }
