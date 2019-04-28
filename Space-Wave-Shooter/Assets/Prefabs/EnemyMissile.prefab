@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targeter: {fileID: 37084752449722980}
-  missileVelocity: 325
+  missileVelocity: 600
   rotationSpeed: 4
   explosion: {fileID: 5720139244763615406, guid: 68365a941175fee49a01cfa3f1fee900,
     type: 3}
