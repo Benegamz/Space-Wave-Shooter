@@ -8,6 +8,7 @@ public class EnemyMissileTargeting : MonoBehaviour
 {
     Rigidbody rb;
     public GameObject targeter;
+    public float fuse = 10f;
     public int missileVelocity;
     public int rotationSpeed;
     public GameObject explosion;
@@ -21,11 +22,10 @@ public class EnemyMissileTargeting : MonoBehaviour
     {
         positivemaxTargetingRotation = 180 + maxTargetingRotationDifference;
         negativemaxTargetingRotation = 180 - maxTargetingRotationDifference;
-        Invoke ("Explode", 10);
+        Invoke ("Explode", fuse);
         rb = GetComponent<Rigidbody>();
         InvokeRepeating ("MissileTargetFinding", 0, 0.1f);
         gos = GameObject.FindGameObjectsWithTag("Friendly");
-        Destroy (gameObject,10);
 
 
         currentTarget = null;

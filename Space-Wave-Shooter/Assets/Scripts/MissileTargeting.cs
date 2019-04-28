@@ -10,6 +10,7 @@ public class MissileTargeting : MonoBehaviour
     Rigidbody rb;
     public GameObject targeter;
     public GameObject explosion;
+    public float fuse = 10f;
     public int missileVelocity;
     public int rotationSpeed;
     public int maxTargetingRotationDifference = 90;
@@ -20,7 +21,7 @@ public class MissileTargeting : MonoBehaviour
     {
         positivemaxTargetingRotation = 180 + maxTargetingRotationDifference;
         negativemaxTargetingRotation = 180 - maxTargetingRotationDifference;
-        Invoke("Explode", 10);
+        Invoke("Explode", fuse);
         uIArrows = GameObject.Find("UI Camera").GetComponent<UIArrows>();
         rb = GetComponent<Rigidbody>();
         InvokeRepeating ("MissileTargetFinding", 0, 0.1f);
