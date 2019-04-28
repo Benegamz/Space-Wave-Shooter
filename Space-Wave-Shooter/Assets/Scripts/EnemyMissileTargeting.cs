@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -55,15 +56,21 @@ public class EnemyMissileTargeting : MonoBehaviour
     void Update()
     {
         rb.velocity = transform.forward * missileVelocity;
-        float predictedImpactTime = (Vector3.Distance(currentTarget.transform.position, transform.position) / (rb.velocity.x + rb.velocity.y + rb.velocity.z));
-        Vector3 currentTargetVelocity = currentTarget.GetComponent<Rigidbody>().velocity;
-        float targetPredictionx = currentTarget.transform.position.x + (currentTargetVelocity.x * predictedImpactTime);
-        float targetPredictiony = currentTarget.transform.position.y + (currentTargetVelocity.y * predictedImpactTime);
-        float targetPredictionz = currentTarget.transform.position.z + (currentTargetVelocity.z * predictedImpactTime);
-        Vector3 targetPrediction = new Vector3 (targetPredictionx, targetPredictiony, targetPredictionz);
-        Quaternion targetRotation = Quaternion.LookRotation (targetPrediction - transform.position);
-        float str = Mathf.Min (rotationSpeed * Time.deltaTime, 1);
-        transform.rotation = Quaternion.Lerp (transform.rotation, targetRotation, str);
+        
+        try {
+            float predictedImpactTime = (Vector3.Distance(currentTarget.transform.position, transform.position) / (rb.velocity.x + rb.velocity.y + rb.velocity.z));
+            Vector3 currentTargetVelocity = currentTarget.GetComponent<Rigidbody>().velocity;
+            float targetPredictionx = currentTarget.transform.position.x + (currentTargetVelocity.x * predictedImpactTime);
+            float targetPredictiony = currentTarget.transform.position.y + (currentTargetVelocity.y * predictedImpactTime);
+            float targetPredictionz = currentTarget.transform.position.z + (currentTargetVelocity.z * predictedImpactTime);
+            Vector3 targetPrediction = new Vector3 (targetPredictionx, targetPredictiony, targetPredictionz);
+            Quaternion targetRotation = Quaternion.LookRotation (targetPrediction - transform.position);
+            float str = Mathf.Min (rotationSpeed * Time.deltaTime, 1);
+            transform.rotation = Quaternion.Lerp (transform.rotation, targetRotation, str);
+        } catch (Exception e) {}
+      
+      
+       
 
         if (currentTarget = GameObject.Find("SpaceFighterv3"))
         {
@@ -78,7 +85,10 @@ public class EnemyMissileTargeting : MonoBehaviour
     void MissileTargetFinding ()
     {
         
-        targeter.transform.LookAt(currentTarget.transform);
+        try {
+            targeter.transform.LookAt(currentTarget.transform);
+        } catch (Exception e) {}
+        
         Vector3 missileEulerRotation = transform.rotation.eulerAngles;
         Vector3 targeterEulerRotation = targeter.transform.rotation.eulerAngles;
         Vector3 rotationDifference = new Vector3 (Mathf.Abs(targeterEulerRotation.x - missileEulerRotation.x),Mathf.Abs(targeterEulerRotation.y - missileEulerRotation.y),Mathf.Abs(targeterEulerRotation.z - missileEulerRotation.z)); 

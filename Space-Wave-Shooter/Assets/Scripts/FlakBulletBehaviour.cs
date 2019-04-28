@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,11 +36,13 @@ public class FlakBulletBehaviour : MonoBehaviour
 
     void Explosion()
     {
+        
         playerDamage = target.GetComponent<PlayerDamage>();
         currentTargetDistance = Vector3.Distance(target.transform.position, transform.position);
         playerDamage.ExplosionDamage(currentTargetDistance, explosionRange, maxExplosionDamage);
         Instantiate(explosion, transform.position, Quaternion.identity);
         Destroy(gameObject);
+        
     }
     void OnCollisionEnter()
     {

@@ -27,7 +27,7 @@ public class PlayerDamage : MonoBehaviour
                 ChangeStatus();
                 if (currentHp <= 0)
                 {
-                    Destroy(gameObject);
+                    gameObject.SetActive(false);
                     SceneManager.LoadScene("GameOver",LoadSceneMode.Additive);
                 }
             }
@@ -37,13 +37,13 @@ public class PlayerDamage : MonoBehaviour
                 ChangeStatus();
                 if (currentHp <= 0)
                 {
-                    Destroy(gameObject);
+                    gameObject.SetActive(false);
                     SceneManager.LoadScene("GameOver",LoadSceneMode.Additive);
                 }
             }
             if (col.gameObject.tag == "Death")
             {
-                Destroy(gameObject);
+                gameObject.SetActive(false);
                 SceneManager.LoadScene("GameOver",LoadSceneMode.Additive);
             }
        }
@@ -65,7 +65,7 @@ public class PlayerDamage : MonoBehaviour
        ChangeStatus();
        if (currentHp <= 0)
                 {
-                    Destroy(gameObject);
+                    gameObject.SetActive(false);
                     SceneManager.LoadScene("GameOver",LoadSceneMode.Additive);
                 }
        }
