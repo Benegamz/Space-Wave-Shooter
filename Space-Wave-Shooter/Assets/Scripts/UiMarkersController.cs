@@ -33,6 +33,7 @@ public class UiMarkersController : MonoBehaviour
             {
                 markerImage = enemy.standardSprite;
                 currentMarker.sprite = markerImage;
+                currentUISprite = markerImage;
                 forRelist = enemy; 
                 Enemy = enemy.Target;
                 cam = enemy.cam;
