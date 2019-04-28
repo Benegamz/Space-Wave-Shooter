@@ -74,19 +74,16 @@ public class PlayerDamage : MonoBehaviour
    {
        if (currentHp > 70)
        {
-           Debug.Log("HP > 70");
            sparkEmitter.SetActive(false);
            smokeEmitter.SetActive(false);
        }
        if (currentHp <= 70)
        {
-           Debug.Log("HP <= 70");
            sparkEmitter.SetActive(true);
            smokeEmitter.SetActive(false);
        }
        if (currentHp <= 40 )
        {
-           Debug.Log("HP <= 40");
            sparkEmitter.SetActive(true);
            smokeEmitter.SetActive(true);
        }
