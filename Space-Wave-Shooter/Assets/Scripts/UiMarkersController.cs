@@ -31,6 +31,8 @@ public class UiMarkersController : MonoBehaviour
         {
             if (enemy.classIdentifier == Identifier)
             {
+                markerImage = enemy.standardSprite;
+                currentMarker.sprite = markerImage;
                 forRelist = enemy; 
                 Enemy = enemy.Target;
                 cam = enemy.cam;
